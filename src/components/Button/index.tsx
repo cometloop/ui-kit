@@ -1,4 +1,4 @@
-import { useTheme } from '@lib/themes/UIKitThemeProvider'
+import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
 import React from 'react'
 import styled, { DefaultTheme, StyledComponent } from 'styled-components'
 

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "declaration": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
@@ -11,11 +12,12 @@
     "resolveJsonModule": true,
     "jsx": "react-jsx",
     "target": "ES6",
-    "module": "ESNext",
+    "lib": ["es2015", "dom"],
+    "module": "ES2015",
     "paths": {
       "@lib/*": ["./src/*"],
       "@assets/*": ["./assets/*"]
     }
   },
-  "include": ["src/**/*", "src/typings.d.ts", "src/themes/styled.d.ts"]
+  "include": ["src/**/*", "src/typings.d.ts"]
 }

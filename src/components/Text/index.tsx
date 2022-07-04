@@ -1,6 +1,6 @@
-import { useTheme } from '@lib/themes/UIKitThemeProvider'
-import React from 'react'
-import styled, { DefaultTheme, StyledComponent } from 'styled-components'
+import { Box } from '@lib/components/Box'
+import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
+import { ElementType, forwardRef, ReactNode } from 'react'
 
 export enum FontFamily {
   Arial = 'Arial, sans-serif',
@@ -11,17 +11,14 @@ export enum FontFamily {
 }
 
 export interface TextProps {
-  children: string
-  fontFamily?: FontFamily
-  fontSize?: string | number
+  children: ReactNode
+  fontFamily?: FontFamily | string
+  fontSize?: string
+  as?: ElementType
 }
 
-export const Text: React.FC<TextProps> = (props) => {
-  return <StyledText {...props}>{props.children}</StyledText>
-}
+export const Text = forwardRef<HTMLSpanElement, TextProps>((props, ref) => {
+  const { theme } = useUIKitTheme()
 
-const StyledText = styled.p<TextProps>`
-  font-family: ${(p) => p.fontFamily || p.theme.text.fontFamily};
-  font-size: ${(p) => p.fontSize || p.theme.text.size};
-  color: ${(p) => p.theme.text.color};
-`
+  return <Box theme={theme} as="span" ref={ref} tx="text" {...props} />
+})

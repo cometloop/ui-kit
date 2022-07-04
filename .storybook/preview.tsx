@@ -1,10 +1,10 @@
 import React from 'react'
 import { UIKitThemeProvider } from '../src/themes/UIKitThemeProvider'
-import { Themes } from '../src/themes'
+import { Themes, UIKitTheme } from '../src/themes/interfaces'
 import { DefaultTheme, createGlobalStyle } from 'styled-components'
 
 // Function to obtain the intended theme
-const getTheme = (themeName): DefaultTheme => {
+const getTheme = (themeName): UIKitTheme => {
   return Themes[themeName]
 }
 
@@ -17,7 +17,7 @@ const getGlobalStyle = (theme: any) => {
 }
 
 const withThemeProvider = (Story, context) => {
-  const theme = getTheme(context.globals.theme) as any
+  const theme = getTheme(context.globals.theme)
   const StoryGlobalStyle = getGlobalStyle(theme)
   return (
     <>

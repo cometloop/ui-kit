@@ -1,6 +1,5 @@
-import { CSSReset } from '@lib/styles/CSSReset'
 import { GlobalStyles } from '@lib/styles/GlobalStyles'
-import { lightTheme, Theme, Themes } from '@lib/themes'
+import { Theme, Themes, UIKitTheme } from '@lib/themes/interfaces'
 import React, {
   createContext,
   ReactNode,
@@ -8,7 +7,8 @@ import React, {
   useEffect,
   useState
 } from 'react'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
+import { lightTheme } from '@lib/themes/lightTheme'
 
 import '@fontsource/open-sans'
 import '@fontsource/poppins'
@@ -16,12 +16,12 @@ import '@fontsource/source-sans-pro'
 import '@fontsource/roboto'
 
 interface Props {
-  theme?: DefaultTheme
+  theme?: UIKitTheme
   children: ReactNode
 }
 
 interface IUIKitThemeContext {
-  theme: DefaultTheme
+  theme: UIKitTheme
   setTheme: (theme: Theme) => void
 }
 
@@ -51,7 +51,7 @@ export const UIKitThemeProvider: React.FC<Props> = (props) => {
   )
 }
 
-export const useTheme = () => {
+export const useUIKitTheme = () => {
   const context = useContext(UIKitThemeContext)
   if (context === undefined) {
     throw new Error('Cannot use UIKitTheme outside of the provider')
