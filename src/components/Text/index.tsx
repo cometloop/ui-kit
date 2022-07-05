@@ -1,6 +1,12 @@
 import { Box } from '@lib/components/Box'
 import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
 import { ElementType, forwardRef, ReactNode } from 'react'
+import {
+  ColorProps,
+  LayoutProps,
+  SpaceProps,
+  TypographyProps
+} from 'styled-system'
 
 export enum FontFamily {
   Arial = 'Arial, sans-serif',
@@ -10,10 +16,13 @@ export enum FontFamily {
   SourceSansPro = 'Source Sans Pro, sans-serif'
 }
 
-export interface TextProps {
+export interface TextProps
+  extends TypographyProps,
+    SpaceProps,
+    LayoutProps,
+    ColorProps {
   children: ReactNode
   fontFamily?: FontFamily | string
-  fontSize?: string
   as?: ElementType
 }
 

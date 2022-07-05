@@ -22,6 +22,7 @@ export default {
       sourcemap: true,
     },
   ],
+  globals: { 'styled-components': 'styled' },
   external: ['styled-components', 'react', 'react-dom'],
   plugins: [
       commonjs(),

@@ -8,7 +8,6 @@ export interface AppIconProps {
 
 export const AppIcon: React.FC<AppIconProps> = (props) => {
   const themeContext = useContext(ThemeContext)
-  console.log(themeContext)
   const { size } = props
   return (
     <div style={{ width: size || 100 }}>

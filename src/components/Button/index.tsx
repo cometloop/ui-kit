@@ -1,29 +1,36 @@
+import { Box } from '@lib/components/Box'
 import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styled, { DefaultTheme, StyledComponent } from 'styled-components'
+import {
+  ButtonStyleProps,
+  FlexboxProps,
+  LayoutProps,
+  opacity,
+  SpaceProps,
+  StylesProps
+} from 'styled-system'
 
-export interface ButtonProps {
-  label: string
-  rounded?: boolean
+export interface ButtonProps extends ButtonStyleProps, SpaceProps, LayoutProps {
+  children: ReactNode
   onClick?: () => void
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { label, onClick } = props
-
-  const clicked = () => {
-    if (onClick) {
-      onClick()
-    }
-  }
-
+  const { theme } = useUIKitTheme()
   return (
-    <StyledButton onClick={clicked} {...props}>
-      {label}
-    </StyledButton>
+    <Box
+      bg={theme.colors.blue}
+      color={theme.colors.white}
+      theme={theme}
+      __css={{
+        border: 0,
+        cursor: 'pointer'
+      }}
+      padding={'10px 20px'}
+      borderRadius={'50px'}
+      as="button"
+      {...(props as any)}
+    />
   )
 }
-
-const StyledButton = styled.button<ButtonProps>`
-  cursor: pointer;
-`

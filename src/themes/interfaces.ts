@@ -1,3 +1,4 @@
+import { colors, ColorType } from '@lib/themes/colors'
 import { FontFamily } from '@lib/components/Text'
 import { darkTheme } from '@lib/themes/darkTheme'
 import { lightTheme } from '@lib/themes/lightTheme'
@@ -20,6 +21,7 @@ export interface UIKitTheme extends StyledSystemTheme {
     fontFamily: FontFamily | string
     size: string
   }
+  colors: Record<ColorType, string>
 }
 
 export type Theme = 'light' | 'dark'

@@ -10,9 +10,7 @@ export default {
 } as Meta
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: Story<ScrollableProps> = (args) => (
-  <Scrollable {...args} width={[1]} />
-)
+const Template: Story<ScrollableProps> = (args) => <Scrollable {...args} />
 
 const getElements = (amount = 50) => {
   const items = []
@@ -24,6 +22,6 @@ const getElements = (amount = 50) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  bg: '#888',
-  children: getElements()
+  bg: '#efefef',
+  children: <p>asdf</p>
 }

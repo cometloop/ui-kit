@@ -12,20 +12,27 @@ import {
 import shouldForwardProp from '@styled-system/should-forward-prop'
 import { UIKitTheme } from '@lib/themes/interfaces'
 import { ColorType } from '@lib/themes/colors'
+import { Box } from '@lib/components/Box'
+import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
 
 export type CardProps = SpaceProps &
   LayoutProps &
-  ColorProps<UIKitTheme, ColorType>
+  ColorProps<UIKitTheme, ColorType> & {
+    children: ReactNode
+  }
 
-export const Card = styled('div').withConfig<CardProps>({
-  shouldForwardProp: (prop) => shouldForwardProp(prop)
-})(
-  {
-    boxSizing: 'border-box',
-    margin: 0,
-    padding: '20px',
-    borderRadius: 10,
-    boxShadow: '1px 0px 16px 0px rgba(0,0,0,0.3)'
-  },
-  compose(space, layout, color)
-)
+export const Card: React.FC<CardProps> = (props) => {
+  const { theme } = useUIKitTheme()
+  return (
+    <Box
+      overflowY="auto"
+      width={[1]}
+      theme={theme}
+      padding={'20px'}
+      borderRadius={'10px'}
+      boxShadow={'1px 0px 16px 0px rgba(0,0,0,0.3)'}
+      as="div"
+      {...(props as any)}
+    />
+  )
+}

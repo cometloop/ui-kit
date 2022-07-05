@@ -21,7 +21,8 @@ import {
   borderRadius,
   BorderRadiusProps,
   position,
-  PositionProps
+  PositionProps,
+  shadow
 } from 'styled-system'
 import css, { CSSObject, get } from '@styled-system/css'
 import shouldForwardProp from '@styled-system/should-forward-prop'
@@ -78,6 +79,7 @@ export const Box = styled.div.withConfig<BoxProps>({
     borders,
     borderWidth,
     borderRadius,
+    shadow,
     position
   )
 )

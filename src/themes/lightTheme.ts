@@ -25,6 +25,16 @@ export const lightTheme: UIKitTheme = {
     Poppins: 'Poppins, sans-serif',
     SourceSansPro: 'Source Sans Pro, sans-serif'
   },
+  buttons: {
+    blue: {
+      color: 'white',
+      backgroundColor: 'blue'
+    },
+    green: {
+      color: 'black',
+      backgroundColor: 'green'
+    }
+  },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   colors
 }
