@@ -1,3 +1,4 @@
+import { FontFamily } from '@lib/components/Text'
 import { colors } from '@lib/themes/colors'
 import { UIKitTheme } from '@lib/themes/interfaces'
 
@@ -14,7 +15,7 @@ export const lightTheme: UIKitTheme = {
     }
   },
   text: {
-    fontFamily: 'arial',
+    fontFamily: FontFamily.Roboto,
     color: '#000',
     size: '1.0rem'
   },

@@ -16,17 +16,9 @@ const Template: ComponentStory<typeof CalendarCountCard> = (args) => (
 export const Default = Template.bind({})
 Default.args = {
   label: '2020-2021 School Year',
-  week: {
+  count: {
     school: 1,
     coop: 2,
     fieldTrip: 3
-  },
-  schoolYear: {
-    school: 40,
-    coop: 5,
-    fieldTrip: 9
-  },
-  onClick: () => {
-    // alert('test')
   }
 }
