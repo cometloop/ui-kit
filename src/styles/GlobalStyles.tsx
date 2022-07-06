@@ -1,4 +1,5 @@
 import { CSSReset } from '@lib/styles/CSSReset'
+import { colors } from '@lib/themes/colors'
 import { createGlobalStyle } from 'styled-components'
 
 const Global = createGlobalStyle`
@@ -8,6 +9,10 @@ const Global = createGlobalStyle`
   }
   h1 {
     font-size: 3rem;
+  }
+  a {
+    color: ${colors.blue};
+    text-decoration: none;
   }
 `
 

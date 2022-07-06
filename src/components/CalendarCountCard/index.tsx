@@ -9,6 +9,7 @@ import React from 'react'
 import styled, { DefaultTheme, StyledComponent } from 'styled-components'
 import { ButtonStyleProps, opacity, StylesProps } from 'styled-system'
 import { ColorType } from '@lib/themes/colors'
+import { Header4 } from '@lib/components/Header'
 
 export interface ICalendarCount {
   school: number
@@ -45,22 +46,17 @@ export const CalendarCountCard: React.FC<CalendarCountCardProps> = (props) => {
   const { count, label } = props
   const total = count.coop + count.fieldTrip + count.school
   return (
-    <Card width={'450px'}>
+    <Card width={'400px'}>
       <Flex>
-        <Text
-          fontFamily={FontFamily.SourceSansPro}
-          fontSize={4}
-          color="black"
-          width={[1]}
-        >
+        <Header4 fontSize={4} color="darkBlue" width={[1]}>
           {label || 'This week'}
-        </Text>
+        </Header4>
         {/* <Button width={'200px'}>{schoolYearLabel}</Button> */}
       </Flex>
       <Flex
         pt={'2rem'}
         flexDirection={'row'}
-        justifyContent="space-evenly"
+        justifyContent="space-between"
         alignItems={'center'}
       >
         <CountItem bg="blue" label="SCHOOL" count={count.school} />

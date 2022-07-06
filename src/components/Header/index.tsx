@@ -1,14 +1,51 @@
-import { TextProps } from '@lib/components/Text'
+import { FontFamily, Text, TextProps } from '@lib/components/Text'
 import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
 import React from 'react'
-import styled, { DefaultTheme, StyledComponent } from 'styled-components'
 
 export const Header: React.FC<TextProps> = (props) => {
-  return <StyledHeader {...props}>{props.children}</StyledHeader>
+  const { theme } = useUIKitTheme()
+  return (
+    <Text
+      as="h1"
+      fontFamily={FontFamily.OpenSans}
+      fontSize={theme.header.sizes.h1}
+      {...props}
+    />
+  )
 }
 
-const StyledHeader = styled.h1<TextProps>`
-  font-family: ${(p) => p.theme.header.fontFamily};
-  font-size: ${(p) => p.theme.header.sizes.h1};
-  color: ${(p) => p.theme.text.color};
-`
+export const Header2: React.FC<TextProps> = (props) => {
+  const { theme } = useUIKitTheme()
+  return (
+    <Text
+      as="h2"
+      fontFamily={FontFamily.OpenSans}
+      fontSize={theme.header.sizes.h2}
+      {...props}
+    />
+  )
+}
+
+export const Header3: React.FC<TextProps> = (props) => {
+  const { theme } = useUIKitTheme()
+  return (
+    <Text
+      as="h3"
+      fontFamily={FontFamily.OpenSans}
+      fontSize={theme.header.sizes.h3}
+      {...props}
+    />
+  )
+}
+
+export const Header4: React.FC<TextProps> = (props) => {
+  const { theme } = useUIKitTheme()
+  return (
+    <Text
+      as="h4"
+      fontFamily={FontFamily.OpenSans}
+      fontSize={theme.header.sizes.h4}
+      {...props}
+    />
+  )
+}

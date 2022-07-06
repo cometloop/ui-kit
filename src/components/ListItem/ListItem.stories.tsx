@@ -39,3 +39,12 @@ Initials.args = {
   item,
   onClick
 }
+
+export const HideAvatar = Template.bind({})
+HideAvatar.args = {
+  label: 'Jen Barber',
+  initials: 'JB',
+  item,
+  hideAvatar: true,
+  onClick
+}

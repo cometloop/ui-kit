@@ -3,12 +3,19 @@ import { ColorType } from '@lib/themes/colors'
 import { UIKitTheme } from '@lib/themes/interfaces'
 import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
 import React, { forwardRef, ReactNode } from 'react'
-import { LayoutProps, SpaceProps, ColorProps, ShadowProps } from 'styled-system'
+import {
+  LayoutProps,
+  SpaceProps,
+  ColorProps,
+  ShadowProps,
+  BorderProps
+} from 'styled-system'
 
 export interface ScrollableProps
   extends LayoutProps,
     SpaceProps,
     ShadowProps,
+    BorderProps,
     ColorProps<UIKitTheme, ColorType> {
   children: ReactNode
 }

@@ -11,11 +11,12 @@ export const lightTheme: UIKitTheme = {
     sizes: {
       h1: '3rem',
       h2: '2.5rem',
-      h3: '2.0rem'
+      h3: '2.0rem',
+      h4: '1.5rem'
     }
   },
   text: {
-    fontFamily: FontFamily.Roboto,
+    fontFamily: 'arial, sans-serif',
     color: '#000',
     size: '1.0rem'
   },

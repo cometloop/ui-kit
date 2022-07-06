@@ -28,9 +28,11 @@ export const Card: React.FC<CardProps> = (props) => {
       overflowY="auto"
       width={[1]}
       theme={theme}
+      bg={theme.bgColor}
       padding={'20px'}
       borderRadius={'10px'}
-      boxShadow={'1px 0px 16px 0px rgba(0,0,0,0.3)'}
+      border="solid 1px #dcdcdc"
+      // boxShadow={'1px 0px 16px 0px rgba(0,0,0,0.3)'}
       as="div"
       {...(props as any)}
     />
