@@ -1,4 +1,5 @@
 import { Box } from '@lib/components/Box'
+import { Flex } from '@lib/components/Flex'
 import { FontFamily, Text } from '@lib/components/Text'
 import { ColorType } from '@lib/themes/colors'
 import { UIKitTheme } from '@lib/themes/interfaces'
@@ -11,6 +12,7 @@ export type ChipProps<T> = SpaceProps &
   ColorProps<UIKitTheme, ColorType> & {
     children: string
     fontSize?: string
+    icon?: ReactNode
     fontFamily?: FontFamily | string
     item?: T
     onClick?: (item: T) => void
@@ -25,6 +27,7 @@ export const Chip: React.FC<ChipProps<any>> = (props) => {
   return (
     <Box
       display={'inline-flex'}
+      alignItems="center"
       p="0.5rem 1rem"
       theme={theme}
       bg={'blue'}
@@ -44,6 +47,11 @@ export const Chip: React.FC<ChipProps<any>> = (props) => {
       >
         {props.children}
       </Text>
+      {props.icon !== undefined && (
+        <Flex alignSelf={'center'} ml={'0.5rem'}>
+          {props.icon}
+        </Flex>
+      )}
     </Box>
   )
 }

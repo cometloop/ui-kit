@@ -1,9 +1,12 @@
 import { Box } from '@lib/components/Box'
+import { ColorType } from '@lib/themes/colors'
+import { UIKitTheme } from '@lib/themes/interfaces'
 import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
 import React, { ReactNode } from 'react'
 import styled, { DefaultTheme, StyledComponent } from 'styled-components'
 import {
   ButtonStyleProps,
+  ColorProps,
   FlexboxProps,
   LayoutProps,
   opacity,
@@ -11,7 +14,11 @@ import {
   StylesProps
 } from 'styled-system'
 
-export interface ButtonProps extends ButtonStyleProps, SpaceProps, LayoutProps {
+export interface ButtonProps
+  extends ButtonStyleProps,
+    SpaceProps,
+    LayoutProps,
+    ColorProps<UIKitTheme, ColorType> {
   children: ReactNode
   onClick?: () => void
 }
@@ -25,7 +32,9 @@ export const Button: React.FC<ButtonProps> = (props) => {
       theme={theme}
       __css={{
         border: 0,
-        cursor: 'pointer'
+        cursor: 'pointer',
+        textTransform: 'uppercase',
+        fontWeight: 'bold'
       }}
       padding={'10px 20px'}
       borderRadius={'50px'}
