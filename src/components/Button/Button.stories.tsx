@@ -15,6 +15,15 @@ export const Default = Template.bind({})
 Default.args = {
   children: 'Download',
   onClick: () => {
-    // alert('test')
+    alert('test')
+  }
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  children: 'Download',
+  disabled: true,
+  onClick: () => {
+    alert('test')
   }
 }

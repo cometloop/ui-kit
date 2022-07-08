@@ -3,15 +3,11 @@ import { ColorType } from '@lib/themes/colors'
 import { UIKitTheme } from '@lib/themes/interfaces'
 import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
 import React, { ReactNode } from 'react'
-import styled, { DefaultTheme, StyledComponent } from 'styled-components'
 import {
   ButtonStyleProps,
   ColorProps,
-  FlexboxProps,
   LayoutProps,
-  opacity,
-  SpaceProps,
-  StylesProps
+  SpaceProps
 } from 'styled-system'
 
 export interface ButtonProps
@@ -20,19 +16,23 @@ export interface ButtonProps
     LayoutProps,
     ColorProps<UIKitTheme, ColorType> {
   children: ReactNode
-  onClick?: () => void
+  onClick?: (e: React.MouseEvent) => void
+  disabled?: boolean
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
   const { theme } = useUIKitTheme()
   return (
     <Box
-      bg={theme.colors.blue}
-      color={theme.colors.white}
+      // bg={theme.colors.blue}
+
       theme={theme}
+      disabled={props.disabled}
       __css={{
+        color: props.disabled ? '#999' : '#fff',
+        backgroundColor: props.disabled ? '#dcdcdc' : theme.colors.blue,
         border: 0,
-        cursor: 'pointer',
+        cursor: props.disabled ? 'default' : 'pointer',
         textTransform: 'uppercase',
         fontWeight: 'bold'
       }}
@@ -40,6 +40,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
       borderRadius={'50px'}
       as="button"
       {...(props as any)}
+      onClick={props.disabled ? undefined : props.onClick}
     />
   )
 }

@@ -5,9 +5,9 @@ import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
 import { MdOutlineNavigateNext } from 'react-icons/md'
 import { BordersProps, FlexProps, LayoutProps, SpaceProps } from 'styled-system'
 import { RequirementItemDto } from '@cometloop/myschoolfiles-openapi/build/v1/myschoolfiles'
-import moment from 'moment'
 import { FiImage, FiLink, FiTag } from 'react-icons/fi'
 import { ReactNode } from 'react'
+import { DateTime } from 'luxon'
 
 export interface RequirementItemCardProps
   extends LayoutProps,
@@ -53,7 +53,8 @@ export const RequirementItemCard: React.FC<RequirementItemCardProps> = (
 ) => {
   const { theme } = useUIKitTheme()
   const { onClick, item, fontFamily } = props
-  const date = moment(item.itemDate).format('MMM D, YYYY')
+
+  const date = DateTime.fromISO(item.itemDate).toLocaleString(DateTime.DATE_MED)
 
   return (
     <Flex

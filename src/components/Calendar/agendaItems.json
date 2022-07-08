@@ -1,0 +1,642 @@
+{
+  "2021-03-10": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "co-op",
+        "color": "#F7B844"
+      }
+    ],
+    "studentIds": [1]
+  },
+  "2021-04-05": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "co-op",
+        "color": "#F7B844"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-07": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "co-op",
+        "color": "#F7B844"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-13": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "co-op",
+        "color": "#F7B844"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-20": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "co-op",
+        "color": "#F7B844"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-21": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "co-op",
+        "color": "#F7B844"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-05-04": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "co-op",
+        "color": "#F7B844"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-05-31": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "co-op",
+        "color": "#F7B844"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-06-06": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "co-op",
+        "color": "#F7B844"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-08-20": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "co-op",
+        "color": "#F7B844"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-09-10": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "co-op",
+        "color": "#F7B844"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-03-09": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "field-trip",
+        "color": "#ff7975"
+      }
+    ],
+    "studentIds": [1]
+  },
+  "2021-04-01": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "field-trip",
+        "color": "#ff7975"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-22": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "field-trip",
+        "color": "#ff7975"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-28": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "field-trip",
+        "color": "#ff7975"
+      }
+    ],
+    "studentIds": [1, 2]
+  },
+  "2021-05-05": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "field-trip",
+        "color": "#ff7975"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-06-01": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "field-trip",
+        "color": "#ff7975"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-06-03": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "field-trip",
+        "color": "#ff7975"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-07-22": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "field-trip",
+        "color": "#ff7975"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-08-25": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "field-trip",
+        "color": "#ff7975"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-08-29": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "field-trip",
+        "color": "#ff7975"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2022-04-24": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "field-trip",
+        "color": "#ff7975"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-03-08": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1]
+  },
+  "2021-04-02": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-06": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-08": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-09": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-12": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-14": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-15": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-16": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-19": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-23": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2]
+  },
+  "2021-04-26": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2]
+  },
+  "2021-04-27": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2]
+  },
+  "2021-04-29": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-04-30": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-05-03": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-05-06": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-05-10": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-05-11": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-05-12": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-05-13": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-05-20": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-05-30": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-06-02": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-06-04": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-06-22": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [2, 3, 9]
+  },
+  "2021-06-23": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-07-21": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-08-14": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-08-16": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-08-17": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-08-18": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-08-19": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-08-23": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-08-27": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2021-08-28": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3]
+  },
+  "2021-09-19": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2022-04-21": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2022-04-22": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2022-04-25": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2022-04-27": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  },
+  "2022-04-29": {
+    "marked": true,
+    "dots": [
+      {
+        "key": "school-day",
+        "color": "#2488F6"
+      }
+    ],
+    "studentIds": [1, 2, 3, 9]
+  }
+}
