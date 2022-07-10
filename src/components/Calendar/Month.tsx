@@ -7,6 +7,7 @@ import { DateTime, Interval } from 'luxon'
 import { Day } from '@lib/components/Calendar/Day'
 import { Agenda } from '@lib/components/Calendar/interfaces'
 import { useCalendar } from '@lib/hooks/useCalendar'
+import { dayInRange } from '@lib/utils/date'
 
 export interface MonthProps {
   datetime: DateTime
@@ -50,14 +51,12 @@ export const Month: React.FC<MonthProps> = (props) => {
       <Flex flexDirection={'row'} flexWrap="wrap">
         {interval.map((i, index) => {
           const dayBelongsToMonth = currentMonth === i.start.month
-          const dayInRange =
-            i.start.startOf('day') >= start.startOf('day') &&
-            i.start.startOf('day') <= end.startOf('day')
+          const inRange = dayInRange(i.start, start, end)
           const markKey = i.start.toFormat('yyyy-MM-dd')
           return (
             <Day
               marking={markedDates[markKey]}
-              dayInRange={dayInRange}
+              dayInRange={inRange}
               onDayClick={onDayClick}
               isToday={isToday(i.start)}
               key={index}

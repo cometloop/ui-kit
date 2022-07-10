@@ -6,8 +6,9 @@ import { Header4 } from '@lib/components/Header'
 import { FontFamily } from '@lib/components/Text'
 import { useDatePicker } from '@lib/hooks/useCalendar'
 import { colors } from '@lib/themes/colors'
+import { getSelectedDay } from '@lib/utils/date'
 import { DateTime, Interval } from 'luxon'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 
 export interface DatePickerProps {
@@ -23,12 +24,16 @@ export const DatePicker: React.FC<DatePickerProps> = (props) => {
   const { selected, minDate, maxDate, onSelected } = props
   const min = DateTime.fromISO(minDate)
   const max = DateTime.fromISO(maxDate)
-  const selectedDay: DateTime | undefined = selected
-    ? DateTime.fromISO(selected)
-    : undefined
+
+  const selectedDay: DateTime | undefined = getSelectedDay(selected, min, max)
+
   const [currentMonth, setCurrentMonth] = useState(
     selectedDay?.startOf('month') || DateTime.now
   )
+
+  useEffect(() => {
+    setCurrentMonth(selectedDay?.startOf('month') || DateTime.now)
+  }, [min.year])
 
   const data = useDatePicker(currentMonth, min, max)
   const { startPrefillDay, lastPrefillDay, canGoBack, canGoNext } = data
