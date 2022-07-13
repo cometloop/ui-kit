@@ -18,6 +18,7 @@ export interface ButtonProps
   children: ReactNode
   onClick?: (e: React.MouseEvent) => void
   disabled?: boolean
+  pointerEvents?: string
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
@@ -34,7 +35,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
         border: 0,
         cursor: props.disabled ? 'default' : 'pointer',
         textTransform: 'uppercase',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        pointerEvents: props.pointerEvents
       }}
       padding={'10px 20px'}
       borderRadius={'50px'}
