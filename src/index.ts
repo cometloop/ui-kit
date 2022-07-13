@@ -25,6 +25,8 @@ export * from './components/Calendar/Month'
 export * from './components/Calendar/Day'
 export * from './components/DatePicker'
 export * from './components/CircleImage'
+export * from './components/Input'
+export * from './components/InputError'
 
 export * from 'react-icons/fa'
 export * from 'react-icons/md'

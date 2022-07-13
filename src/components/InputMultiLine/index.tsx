@@ -2,7 +2,7 @@ import { Box } from '@lib/components/Box'
 import { InputError } from '@lib/components/InputError'
 import { FontFamily } from '@lib/components/Text'
 import css from '@styled-system/css'
-import { InputHTMLAttributes } from 'react'
+import { TextareaHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import {
   LayoutProps,
@@ -15,33 +15,38 @@ import {
   border
 } from 'styled-system'
 
-export interface InputProps
-  extends BorderProps,
+export interface InputMultiLineProps
+  extends LayoutProps,
+    BorderProps,
     SpaceProps,
-    InputHTMLAttributes<HTMLInputElement> {
+    TextareaHTMLAttributes<HTMLTextAreaElement> {
   placeholder?: string
   error?: string
-  defaultValue?: any
 }
 
-export const Input: React.FC<InputProps> = (props) => {
-  const { error, defaultValue } = props
+export const InputMultiLine: React.FC<InputMultiLineProps> = (props) => {
+  const { error, value } = props
   const borderColor = error ? 'red' : '#ddd'
 
+  // const [val, setVal] = useState<any>(value)
+  // const _internalOnChange = (
+  //   e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => {
+  //   setVal(e.currentTarget.value)
+  // }
   return (
     <Box>
-      <TextInput
-        {...(props as any)}
-        borderColor={borderColor}
-        defaultValue={defaultValue}
-      />
+      <TextArea {...(props as any)} borderColor={borderColor}>
+        {value}
+      </TextArea>
       <InputError>{error}</InputError>
     </Box>
   )
 }
 
-const TextInput = styled.input<InputProps>(
+const TextArea = styled.textarea<InputMultiLineProps>(
   css({
+    resize: 'none',
     boxSizing: 'border-box',
     display: 'block',
     width: '100%',
