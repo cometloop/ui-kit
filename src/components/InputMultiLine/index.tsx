@@ -36,7 +36,7 @@ export const InputMultiLine: React.FC<InputMultiLineProps> = (props) => {
   // }
   return (
     <Box>
-      <TextArea {...(props as any)} borderColor={borderColor}>
+      <TextArea {...props} borderColor={borderColor}>
         {value}
       </TextArea>
       <InputError>{error}</InputError>
