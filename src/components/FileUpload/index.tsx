@@ -1,35 +1,38 @@
 import { Box } from '@lib/components/Box'
-import { Button } from '@lib/components/Button'
-import { FilesResult, getFilesResult } from '@lib/components/FileUpload/utils'
-import { Flex } from '@lib/components/Flex'
-import { Text } from '@lib/components/Text'
+import { FilesResult, UploadProps } from '@lib/components/FileUpload/interfaces'
+import { Upload } from '@lib/components/FileUpload/Upload'
+import { getFilesResult } from '@lib/components/FileUpload/utils'
 import React, { useState } from 'react'
 import { LayoutProps, SpaceProps } from 'styled-system'
 
+export const toBase64 = (file: File): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = () => resolve(reader.result as string)
+    reader.onerror = (error) => reject(error)
+  })
+
 export interface FileUploadProps extends LayoutProps, SpaceProps {
-  activeLabel?: string
-  label?: string
-  buttonLabel?: string
-  validateMimeTypes: RegExp
+  validateMimeTypes?: RegExp
   accept?: string
-  maxFileSize?: number
+  maxFileSizeMegabytes?: number
+  children?: (props: UploadProps) => JSX.Element
   onUploaded?: (files: FilesResult) => void
 }
 
 export const FileUpload: React.FC<FileUploadProps> = (props) => {
   const {
+    children,
     accept,
+    maxFileSizeMegabytes,
     validateMimeTypes,
-    activeLabel,
-    label,
-    buttonLabel,
     onUploaded
   } = props
 
   const [dragActive, setDragActive] = useState(false)
   const expression: RegExp = validateMimeTypes || /(.*)+/
 
-  // handle drag events
   const handleDrag = function (e: React.FormEvent<any>) {
     e.preventDefault()
     e.stopPropagation()
@@ -46,20 +49,19 @@ export const FileUpload: React.FC<FileUploadProps> = (props) => {
     setDragActive(false)
     const { files } = e.dataTransfer
     if (files.length === 0) return
-    onUploaded(getFilesResult(files, expression))
+    onUploaded &&
+      onUploaded(getFilesResult(files, expression, maxFileSizeMegabytes))
   }
 
   const handleChange = function (e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault()
     const { files } = e.target
     if (files.length === 0) return
-    onUploaded(getFilesResult(files, expression))
+    onUploaded &&
+      onUploaded(getFilesResult(files, expression, maxFileSizeMegabytes))
   }
 
-  const inActiveText = label || 'Drag and drop your files here.'
-  const activeText = activeLabel || 'Drop files'
-
-  const dragAreaCopy = dragActive ? activeText : inActiveText
+  const Component = children || Upload
 
   return (
     <Box>
@@ -81,48 +83,10 @@ export const FileUpload: React.FC<FileUploadProps> = (props) => {
           onChange={handleChange}
         />
         <label
-          id="label-file-upload"
           htmlFor="input-file-upload"
           style={{ display: 'block', position: 'relative' }}
         >
-          {/* {dragActive && (
-            <Box
-              width={'100%'}
-              height={'100%'}
-              top={0}
-              left={0}
-              position="absolute"
-              id="drag-file-element"
-              onDragEnter={handleDrag}
-              onDragLeave={handleDrag}
-              onDragOver={handleDrag}
-              onDrop={handleDrop as any}
-            ></Box>
-          )} */}
-
-          <Flex
-            __css={{
-              cursor: 'pointer'
-            }}
-            justifyContent={'center'}
-            align-items="center"
-            width={[1]}
-            flexDirection={'column'}
-            bg="#efefef"
-            p="2rem"
-          >
-            <Text p="2rem" textAlign={'center'} as="p">
-              {dragAreaCopy}
-            </Text>
-            <Box alignSelf={'center'}>
-              <Button pointerEvents={'none'}>{buttonLabel || 'Upload'}</Button>
-            </Box>
-          </Flex>
-
-          {/* <div>
-            <p>Drag and drop your file here or</p>
-            <button className="upload-button">Upload a file</button>
-          </div> */}
+          <Component isDragging={dragActive} />
         </label>
       </Box>
     </Box>

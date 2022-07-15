@@ -2,10 +2,9 @@ import { Box } from '@lib/components/Box'
 import { InputError } from '@lib/components/InputError'
 import { FontFamily } from '@lib/components/Text'
 import css from '@styled-system/css'
-import { InputHTMLAttributes } from 'react'
+import { forwardRef, InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import {
-  LayoutProps,
   SpaceProps,
   typography,
   space,
@@ -24,21 +23,19 @@ export interface InputProps
   defaultValue?: any
 }
 
-export const Input: React.FC<InputProps> = (props) => {
-  const { error, defaultValue } = props
+export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  const { error } = props
   const borderColor = error ? 'red' : '#ddd'
+
+  // console.log('Input render')
 
   return (
     <Box>
-      <TextInput
-        {...(props as any)}
-        borderColor={borderColor}
-        defaultValue={defaultValue}
-      />
+      <TextInput {...props} ref={ref} borderColor={borderColor} />
       <InputError>{error}</InputError>
     </Box>
   )
-}
+})
 
 const TextInput = styled.input<InputProps>(
   css({
