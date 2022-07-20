@@ -2,7 +2,7 @@ import { Box } from '@lib/components/Box'
 import { InputError } from '@lib/components/InputError'
 import { FontFamily } from '@lib/components/Text'
 import css from '@styled-system/css'
-import { TextareaHTMLAttributes } from 'react'
+import { forwardRef, TextareaHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import {
   LayoutProps,
@@ -24,7 +24,10 @@ export interface InputMultiLineProps
   error?: string
 }
 
-export const InputMultiLine: React.FC<InputMultiLineProps> = (props) => {
+export const InputMultiLine = forwardRef<
+  HTMLTextAreaElement,
+  InputMultiLineProps
+>((props, ref) => {
   const { error, value } = props
   const borderColor = error ? 'red' : '#ddd'
 
@@ -36,13 +39,11 @@ export const InputMultiLine: React.FC<InputMultiLineProps> = (props) => {
   // }
   return (
     <Box>
-      <TextArea {...props} borderColor={borderColor}>
-        {value}
-      </TextArea>
+      <TextArea {...props} borderColor={borderColor} />
       <InputError>{error}</InputError>
     </Box>
   )
-}
+})
 
 const TextArea = styled.textarea<InputMultiLineProps>(
   css({
