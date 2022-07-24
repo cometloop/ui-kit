@@ -9,6 +9,8 @@ import React, {
 } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme } from '@lib/themes/lightTheme'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+import { DndProvider } from 'react-dnd'
 
 import '@fontsource/open-sans'
 import '@fontsource/poppins'
@@ -45,8 +47,10 @@ export const UIKitThemeProvider: React.FC<Props> = (props) => {
         setTheme
       }}
     >
-      <GlobalStyles />
-      <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+      <DndProvider backend={HTML5Backend}>
+        <GlobalStyles />
+        <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+      </DndProvider>
     </UIKitThemeContext.Provider>
   )
 }

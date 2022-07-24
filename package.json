@@ -74,8 +74,11 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
+    "currency.js": "^2.0.4",
     "framer-motion": "^6.4.2",
     "luxon": "^2.4.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-icons": "^4.4.0",
     "yup": "^0.32.11"
   },
