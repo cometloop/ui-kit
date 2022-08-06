@@ -31,6 +31,8 @@ export * from './components/InputMultiLine'
 export * from './components/FileUpload'
 export * from './components/FileUpload/interfaces'
 export * from './components/FileUpload/Upload'
+export * from './components/InputCurrency'
+export * from './components/InputRadio'
 
 export * from 'react-icons/fa'
 export * from 'react-icons/md'

@@ -28,19 +28,16 @@ export interface InputCurrencyOnChange {
   valueString: string
 }
 
-export interface InputCurrencyProps
-  extends BorderProps,
-    SpaceProps,
-    InputHTMLAttributes<Omit<HTMLInputElement, 'onChange'>> {
+export interface InputCurrencyProps extends BorderProps, SpaceProps {
   placeholder?: string
   error?: string
   defaultValue?: any
-  onChange: (e: InputCurrencyOnChange) => void
+  onValueChange: (e: InputCurrencyOnChange) => void
 }
 
 export const InputCurrency = forwardRef<HTMLInputElement, InputCurrencyProps>(
   (props, ref) => {
-    const { error, defaultValue, placeholder, onChange } = props
+    const { error, defaultValue, placeholder, onValueChange } = props
     const borderColor = error ? 'red' : '#ddd'
 
     const [value, setValue] = useState<string>(defaultValue || '')
@@ -54,7 +51,7 @@ export const InputCurrency = forwardRef<HTMLInputElement, InputCurrencyProps>(
       }
       setValue(newValue)
 
-      onChange({
+      onValueChange({
         value: currency(newValue).value,
         valueString: currency(newValue).format()
       })
@@ -172,7 +169,7 @@ export const InputCurrency = forwardRef<HTMLInputElement, InputCurrencyProps>(
   }
 )
 
-const TextInput = styled.input<InputCurrencyProps>(
+const TextInput = styled.input<any>(
   css({
     boxSizing: 'border-box',
     display: 'block',

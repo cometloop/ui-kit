@@ -38,7 +38,7 @@ InputText.args = {
   placeholder: 'Enter a value',
   focus: true,
   value: '100.34',
-  onChange: (e: any) => {
+  onValueChange: (e: any) => {
     console.log('value', e)
   },
   // onChange: (v: FormEvent<HTMLInputElement>) => {

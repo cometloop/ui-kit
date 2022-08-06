@@ -22,6 +22,7 @@ export interface TextProps
     LayoutProps,
     ColorProps {
   children: ReactNode
+  htmlFor?: string
   fontFamily?: FontFamily | string
   as?: ElementType
 }

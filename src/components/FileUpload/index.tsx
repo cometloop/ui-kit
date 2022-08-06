@@ -80,7 +80,7 @@ export const FileUpload: React.FC<FileUploadProps> = (props) => {
           type="file"
           id="input-file-upload"
           multiple={true}
-          onChange={handleChange}
+          onValueChange={handleChange}
         />
         <label
           htmlFor="input-file-upload"
