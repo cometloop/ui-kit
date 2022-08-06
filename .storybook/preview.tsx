@@ -1,32 +1,27 @@
-import React from 'react'
+import React, { ReactNode, useEffect } from 'react'
 import { UIKitThemeProvider } from '../src/themes/UIKitThemeProvider'
-import { Themes, UIKitTheme } from '../src/themes/interfaces'
-import { DefaultTheme, createGlobalStyle } from 'styled-components'
-
-// Function to obtain the intended theme
-const getTheme = (themeName): UIKitTheme => {
-  return Themes[themeName]
-}
-
-const getGlobalStyle = (theme: any) => {
-  return createGlobalStyle`
-    body {
-      background: ${theme?.bgColor}
-    }
-  `
-}
+import { useColorMode } from 'theme-ui'
 
 const withThemeProvider = (Story, context) => {
-  const theme = getTheme(context.globals.theme)
-  const StoryGlobalStyle = getGlobalStyle(theme)
   return (
-    <>
-      <StoryGlobalStyle />
-      <UIKitThemeProvider theme={theme}>
+    <UIKitThemeProvider theme={undefined}>
+      <StorybookTheme theme={context.globals.theme}>
         <Story />
-      </UIKitThemeProvider>
-    </>
+      </StorybookTheme>
+    </UIKitThemeProvider>
   )
+}
+
+const StorybookTheme: React.FC<{ theme: string; children: ReactNode }> = ({
+  theme,
+  children
+}) => {
+  const [_, setColorMode] = useColorMode()
+  useEffect(() => {
+    setColorMode(theme)
+  }, [theme])
+
+  return <>{children}</>
 }
 
 export const decorators = [withThemeProvider]
