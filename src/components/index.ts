@@ -1,5 +1,0 @@
-export * from './AppIcon'
-export * from './Avatar'
-export * from './Header'
-export * from './Image'
-export * from './ProgressBar'

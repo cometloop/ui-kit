@@ -1,9 +1,10 @@
 import { FontFamily } from '@lib/components/Text'
+import { UIKitTheme } from '@lib/themes/interfaces'
 import { Theme, ThemeUIContextValue, useThemeUI } from 'theme-ui'
 
 // const makeTheme = <T extends Theme>(t: T) => t
 
-export const theme = {
+export const theme: UIKitTheme = {
   config: {
     initialColorModeName: 'light',
     useColorSchemeMediaQuery: false
@@ -40,7 +41,6 @@ export const theme = {
   images: {
     avatar: {
       aspectRatio: 'auto',
-      // height: 100,
       borderRadius: '50%',
       objectFit: 'cover',
       objectPosition: 'center'

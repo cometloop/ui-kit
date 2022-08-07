@@ -1,7 +1,9 @@
 import { theme } from '@lib/themes/theme'
-import { ThemeUIContextValue, useThemeUI } from 'theme-ui'
+import { Theme, ThemeUIContextValue, useThemeUI } from 'theme-ui'
 
-export type UIKitTheme = typeof theme
+// export type UIKitTheme = typeof theme
+// export type UIKitTheme = typeof theme
+export interface UIKitTheme extends Theme {}
 
 interface UIKitThemeContextValue extends Omit<ThemeUIContextValue, 'theme'> {
   theme: UIKitTheme
