@@ -9,11 +9,13 @@ export const theme = {
     useColorSchemeMediaQuery: false
   },
   fonts: {
-    body: FontFamily.Arial
+    body: FontFamily.Arial,
+    heading: FontFamily.SourceSansPro
   },
+  fontSizes: [12, 14, 16, 20, 24, 32],
   lineHeights: {
     body: 1.5,
-    heading: 2,
+    heading: 1.75,
     test: 5
   },
   colors: {
@@ -24,11 +26,24 @@ export const theme = {
     accent: 'purple',
     highlight: 'yellow',
     muted: '#dcdcdc',
+    progressBarColor: '#bbdefb',
+    progressOverlayColor: '#42a5f5',
     modes: {
       dark: {
         text: '#fff',
-        background: '#000'
+        background: '#000',
+        progressBarColor: '#444',
+        progressOverlayColor: '#fff'
       }
+    }
+  },
+  images: {
+    avatar: {
+      aspectRatio: 'auto',
+      // height: 100,
+      borderRadius: '50%',
+      objectFit: 'cover',
+      objectPosition: 'center'
     }
   },
   styles: {}
