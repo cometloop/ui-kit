@@ -1,4 +1,5 @@
 import { FontFamily } from '@lib/components/Text'
+import { colors } from '@lib/themes/colors'
 import { UIKitTheme } from '@lib/themes/interfaces'
 import { Theme, ThemeUIContextValue, useThemeUI } from 'theme-ui'
 
@@ -22,13 +23,17 @@ export const theme: UIKitTheme = {
   colors: {
     text: '#333',
     background: '#fff',
-    primary: 'orange',
+    primary: colors.blue,
     secondary: 'red',
     accent: 'purple',
     highlight: 'yellow',
     muted: '#dcdcdc',
     progressBarColor: '#bbdefb',
     progressOverlayColor: '#42a5f5',
+    calendarTodayCircleColor: colors.blue,
+    calendarTodayTextColor: colors.white,
+    calendarDayTextColor: '#333',
+    green: colors.green,
     modes: {
       dark: {
         text: '#fff',
@@ -44,6 +49,24 @@ export const theme: UIKitTheme = {
       borderRadius: '50%',
       objectFit: 'cover',
       objectPosition: 'center'
+    }
+  },
+  calendar: {
+    dayCircleSize: '2rem',
+    dayFontSize: '0.8rem'
+  },
+  cards: {
+    default: {
+      padding: 3,
+      borderRadius: 4,
+      backgroundColor: 'background',
+      boxShadow: '0 0 8px rgba(0, 0, 0, 0.125)'
+    },
+    large: {
+      padding: 4,
+      borderRadius: 4,
+      backgroundColor: 'background',
+      boxShadow: '0 0 8px rgba(0, 0, 0, 0.125)'
     }
   },
   styles: {}

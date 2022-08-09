@@ -1,8 +1,9 @@
 import { Heading, SxProp } from 'theme-ui'
 
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 export interface HeaderProps extends SxProp {
+  children: ReactNode
   as?: any
 }
 

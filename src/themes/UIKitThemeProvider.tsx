@@ -1,7 +1,7 @@
 import { GlobalStyles } from '@lib/styles/GlobalStyles'
-import { UIKitTheme } from '@lib/themes/interfaces'
+import { UIKitTheme, useTheme } from '@lib/themes/interfaces'
 import { theme as defaultTheme } from '@lib/themes/theme'
-import { ThemeProvider } from 'theme-ui'
+import { ThemeProvider, useColorMode } from 'theme-ui'
 import React, { ReactNode } from 'react'
 
 import '@fontsource/open-sans'
@@ -21,4 +21,15 @@ export const UIKitThemeProvider: React.FC<Props> = ({ theme, children }) => {
       <ThemeProvider theme={theme || defaultTheme}>{children}</ThemeProvider>
     </>
   )
+}
+
+export const useUIKitTheme = () => {
+  const [colorMode, setColorMode] = useColorMode()
+  const { theme } = useTheme()
+
+  return {
+    colorMode,
+    setColorMode,
+    theme
+  }
 }

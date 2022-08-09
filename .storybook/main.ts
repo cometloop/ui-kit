@@ -8,7 +8,15 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions'
+    '@storybook/addon-interactions',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        configureJSX: true,
+        babelOptions: {},
+        sourceLoaderOptions: null
+      }
+    }
   ],
   babel: async (options) => ({
     ...options,
@@ -17,7 +25,7 @@ module.exports = {
       [
         '@babel/preset-react',
         {
-          importSource: 'theme-ui', // or '@theme-ui/core'
+          // importSource: 'theme-ui',
           runtime: 'automatic',
           throwIfNamespace: false
         }
@@ -30,7 +38,6 @@ module.exports = {
       ...config.resolve.alias,
       '@lib': path.resolve(__dirname, '../src')
     }
-
     return config
   }
 }

@@ -19,9 +19,9 @@ export const Text: React.FC<TextProps> = (props) => {
       sx={{
         fontFamily: FontFamily.OpenSans,
         lineHeight: 'body',
-        color: 'text'
+        color: 'text',
+        ...props.sx
       }}
-      {...props}
     >
       {props.children}
     </ThemeText>
