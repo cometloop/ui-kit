@@ -12,6 +12,7 @@ export const colors = {
   lightGreen: '#d0f1f2',
   text: 'green',
   background: '#fff',
+  red: '#f44336',
   primary: 'blue',
   secondary: 'red',
   accent: 'purple',

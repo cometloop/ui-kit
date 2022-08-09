@@ -34,6 +34,7 @@ export const theme: UIKitTheme = {
     calendarTodayTextColor: colors.white,
     calendarDayTextColor: '#333',
     green: colors.green,
+    red: colors.red,
     modes: {
       dark: {
         text: '#fff',
@@ -49,6 +50,18 @@ export const theme: UIKitTheme = {
       borderRadius: '50%',
       objectFit: 'cover',
       objectPosition: 'center'
+    }
+  },
+  buttons: {
+    primary: {
+      color: 'white',
+      fontFamily: 'body',
+      textTransform: 'uppercase',
+      bg: 'primary'
+    },
+    secondary: {
+      color: 'background',
+      bg: 'secondary'
     }
   },
   calendar: {
