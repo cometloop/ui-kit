@@ -1,8 +1,7 @@
 import { InputError } from '@lib/components/InputError'
 import { FontFamily } from '@lib/components/Text'
 import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
-import { forwardRef, InputHTMLAttributes } from 'react'
-import { SpaceProps, BorderProps } from 'styled-system'
+import { forwardRef } from 'react'
 import { Box, Input as ThemeInput } from 'theme-ui'
 
 export interface InputProps {

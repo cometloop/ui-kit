@@ -2,7 +2,6 @@ import { FilesResult, UploadProps } from '@lib/components/FileUpload/interfaces'
 import { Upload } from '@lib/components/FileUpload/Upload'
 import { getFilesResult } from '@lib/components/FileUpload/utils'
 import React, { useState } from 'react'
-import { LayoutProps, SpaceProps } from 'styled-system'
 import { Box } from 'theme-ui'
 
 export const toBase64 = (file: File): Promise<string> =>
@@ -13,7 +12,7 @@ export const toBase64 = (file: File): Promise<string> =>
     reader.onerror = (error) => reject(error)
   })
 
-export interface FileUploadProps extends LayoutProps, SpaceProps {
+export interface FileUploadProps {
   validateMimeTypes?: RegExp
   accept?: string
   maxFileSizeMegabytes?: number

@@ -2,14 +2,9 @@ import { Avatar } from '@lib/components/Avatar'
 import { Text } from '@lib/components/Text'
 import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
 import { MdOutlineNavigateNext } from 'react-icons/md'
-import { BordersProps, FlexProps, LayoutProps, SpaceProps } from 'styled-system'
 import { Box, Flex } from 'theme-ui'
 
-export interface ListItemProps<T>
-  extends LayoutProps,
-    SpaceProps,
-    BordersProps,
-    FlexProps {
+export interface ListItemProps<T> {
   label: string
   imgUrl?: string
   initials?: string
