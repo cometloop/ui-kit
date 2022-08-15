@@ -28,7 +28,7 @@ jobs:
 
       - name: TEMP show ~/.npmrc
         run: |
-          echo cat ~/.npmrc
+          cat ~/.npmrc
 
       - name: Install dependencies
         run: yarn
