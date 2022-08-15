@@ -26,6 +26,10 @@ jobs:
         run: |
           echo $NPMRC > .npmrc
 
+      - name: 'Show npmrc'
+      - run: |
+          echo $NPMRC
+
       - name: Install dependencies
         run: yarn
 
