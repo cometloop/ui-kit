@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { SxProp, Text as ThemeText } from 'theme-ui'
+import { BoxProps, SxProp, Text as ThemeText } from 'theme-ui'
 
 export enum FontFamily {
   Arial = 'Arial, sans-serif',
@@ -9,7 +9,7 @@ export enum FontFamily {
   SourceSansPro = 'Source Sans Pro, sans-serif'
 }
 
-export interface TextProps extends SxProp {
+export interface TextProps extends BoxProps {
   children: ReactNode
 }
 
@@ -19,7 +19,7 @@ export const Text: React.FC<TextProps> = (props) => {
       sx={{
         fontFamily: FontFamily.OpenSans,
         lineHeight: 'body',
-        color: 'text',
+        // color: props.sx?.color || 'text',
         ...props.sx
       }}
     >

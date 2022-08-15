@@ -35,6 +35,7 @@ export const theme: UIKitTheme = {
     calendarDayTextColor: '#333',
     green: colors.green,
     red: colors.red,
+    pink: colors.pink,
     modes: {
       dark: {
         text: '#fff',

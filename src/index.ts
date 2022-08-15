@@ -19,6 +19,7 @@ export * from './components/InputMultiLine'
 export * from './components/ListItem'
 export * from './components/ProgressBar'
 export * from './components/Text'
+export * from './components/Count'
 
 export * from 'react-icons/fa'
 export * from 'react-icons/md'
@@ -28,6 +29,7 @@ export * from 'react-icons/fi'
 
 export const Box = ThemeUI.Box
 export const Flex = ThemeUI.Flex
+export const Button = ThemeUI.Button
 export const Grid = ThemeUI.Grid
 export const Link = ThemeUI.Link
 export const Switch = ThemeUI.Switch

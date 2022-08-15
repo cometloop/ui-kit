@@ -36,7 +36,8 @@ export const Chip: React.FC<ChipProps<any>> = (props) => {
       <Text
         sx={{
           fontFamily: props.fontFamily || FontFamily.Roboto,
-          fontSize: props.fontSize
+          fontSize: props.fontSize,
+          color: '#fff'
         }}
       >
         {props.children}
