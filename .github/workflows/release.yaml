@@ -8,6 +8,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -26,6 +27,8 @@ jobs:
         run: yarn
 
       - name: Build package
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn build
 
       # - name: Run tests
