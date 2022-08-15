@@ -1,9 +1,8 @@
-import { Box } from '@lib/components/Box'
 import { FilesResult, UploadProps } from '@lib/components/FileUpload/interfaces'
 import { Upload } from '@lib/components/FileUpload/Upload'
 import { getFilesResult } from '@lib/components/FileUpload/utils'
 import React, { useState } from 'react'
-import { LayoutProps, SpaceProps } from 'styled-system'
+import { Box } from 'theme-ui'
 
 export const toBase64 = (file: File): Promise<string> =>
   new Promise((resolve, reject) => {
@@ -13,7 +12,7 @@ export const toBase64 = (file: File): Promise<string> =>
     reader.onerror = (error) => reject(error)
   })
 
-export interface FileUploadProps extends LayoutProps, SpaceProps {
+export interface FileUploadProps {
   validateMimeTypes?: RegExp
   accept?: string
   maxFileSizeMegabytes?: number
@@ -80,7 +79,7 @@ export const FileUpload: React.FC<FileUploadProps> = (props) => {
           type="file"
           id="input-file-upload"
           multiple={true}
-          onValueChange={handleChange}
+          onChange={handleChange}
         />
         <label
           htmlFor="input-file-upload"

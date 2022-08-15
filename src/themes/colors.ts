@@ -9,5 +9,13 @@ export const colors = {
   white: '#fff',
   pink: '#ff7975',
   green: '#29C6C1',
-  lightGreen: '#d0f1f2'
+  lightGreen: '#d0f1f2',
+  text: 'green',
+  background: '#fff',
+  red: '#f44336',
+  primary: 'blue',
+  secondary: 'red',
+  accent: 'purple',
+  highlight: 'yellow',
+  muted: '#dcdcdc'
 }

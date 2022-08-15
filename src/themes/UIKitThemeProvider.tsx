@@ -1,16 +1,8 @@
 import { GlobalStyles } from '@lib/styles/GlobalStyles'
-import { Theme, Themes, UIKitTheme } from '@lib/themes/interfaces'
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState
-} from 'react'
-import { ThemeProvider } from 'styled-components'
-import { lightTheme } from '@lib/themes/lightTheme'
-import { HTML5Backend } from 'react-dnd-html5-backend'
-import { DndProvider } from 'react-dnd'
+import { UIKitTheme, useTheme } from '@lib/themes/interfaces'
+import { theme as defaultTheme } from '@lib/themes/theme'
+import { ThemeProvider, useColorMode } from 'theme-ui'
+import React, { ReactNode } from 'react'
 
 import '@fontsource/open-sans'
 import '@fontsource/poppins'
@@ -22,43 +14,22 @@ interface Props {
   children: ReactNode
 }
 
-interface IUIKitThemeContext {
-  theme: UIKitTheme
-  setTheme: (theme: Theme) => void
-}
-
-const UIKitThemeContext =
-  createContext<IUIKitThemeContext | undefined>(undefined)
-
-export const UIKitThemeProvider: React.FC<Props> = (props) => {
-  const [theme, changeTheme] = useState(lightTheme)
-  const setTheme = (theme: Theme) => {
-    changeTheme(Themes[theme])
-  }
-
-  useEffect(() => {
-    changeTheme(props.theme)
-  }, [props.theme])
-
+export const UIKitThemeProvider: React.FC<Props> = ({ theme, children }) => {
   return (
-    <UIKitThemeContext.Provider
-      value={{
-        theme,
-        setTheme
-      }}
-    >
-      <DndProvider backend={HTML5Backend}>
-        <GlobalStyles />
-        <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
-      </DndProvider>
-    </UIKitThemeContext.Provider>
+    <>
+      <GlobalStyles />
+      <ThemeProvider theme={theme || defaultTheme}>{children}</ThemeProvider>
+    </>
   )
 }
 
 export const useUIKitTheme = () => {
-  const context = useContext(UIKitThemeContext)
-  if (context === undefined) {
-    throw new Error('Cannot use UIKitTheme outside of the provider')
+  const [colorMode, setColorMode] = useColorMode()
+  const { theme } = useTheme()
+
+  return {
+    colorMode,
+    setColorMode,
+    theme
   }
-  return context
 }

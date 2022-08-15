@@ -11,12 +11,14 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "jsx": "react-jsx",
+    "jsxImportSource": "theme-ui",
+    "types": ["theme-ui"],
     "target": "ES6",
     "lib": ["es2015", "dom"],
     "module": "ES2015",
     "paths": {
       "@lib/*": ["./src/*"],
-      "@assets/*": ["./assets/*"]
+      "@assets/*": ["./src/assets/*"]
     }
   },
   "include": ["src/**/*", "src/typings.d.ts"]

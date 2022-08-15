@@ -1,9 +1,9 @@
-import { Flex } from '@lib/components/Flex'
 import { Text } from '@lib/components/Text'
+import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
 import { DateTime } from 'luxon'
 import { ReactNode } from 'react'
+import { Flex } from 'theme-ui'
 
-const size = '2rem'
 const minHeight = '60px'
 
 export interface DayProps {
@@ -20,33 +20,43 @@ interface TodayTextProps {
 }
 
 export const SelectedText: React.FC<TodayTextProps> = ({ day }) => {
+  const { theme } = useUIKitTheme()
   return (
     <Flex
+      sx={{
+        background: 'green',
+        borderRadius: '100%',
+        width: theme.calendar.dayCircleSize,
+        height: theme.calendar.dayCircleSize,
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
       id="calendar-today"
-      bg="green"
-      borderRadius={'100%'}
-      width={size}
-      height={size}
-      justifyContent="center"
-      alignItems={'center'}
     >
-      <Text color={'white'}>{day.toFormat('d')}</Text>
+      <Text sx={{ color: 'white', fontSize: theme.calendar.dayFontSize }}>
+        {day.toFormat('d')}
+      </Text>
     </Flex>
   )
 }
 
 export const TodayText: React.FC<TodayTextProps> = ({ day }) => {
+  const { theme } = useUIKitTheme()
   return (
     <Flex
       id="calendar-today"
-      bg="blue"
-      borderRadius={'100%'}
-      width={size}
-      height={size}
-      justifyContent="center"
-      alignItems={'center'}
+      sx={{
+        bg: 'calendarTodayCircleColor',
+        borderRadius: '100%',
+        width: theme.calendar.dayCircleSize,
+        height: theme.calendar.dayCircleSize,
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
     >
-      <Text color={'white'}>{day.toFormat('d')}</Text>
+      <Text sx={{ color: 'white', fontSize: theme.calendar.dayFontSize }}>
+        {day.toFormat('d')}
+      </Text>
     </Flex>
   )
 }
@@ -54,10 +64,12 @@ export const TodayText: React.FC<TodayTextProps> = ({ day }) => {
 export const EmptyDay: React.FC = () => {
   return (
     <Flex
-      minHeight={minHeight}
-      justifyContent={'center'}
-      alignItems="center"
-      width={'calc(100% / 7)'}
+      sx={{
+        minHeight,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 'calc(100% / 7)'
+      }}
     >
       <div />
     </Flex>
@@ -65,11 +77,21 @@ export const EmptyDay: React.FC = () => {
 }
 
 export const StandardDayText: React.FC<TodayTextProps> = ({ day }) => {
-  return <Text color={'#222'}>{day.toFormat('d')}</Text>
+  const { theme } = useUIKitTheme()
+  return (
+    <Text sx={{ color: 'text', fontSize: theme.calendar.dayFontSize }}>
+      {day.toFormat('d')}
+    </Text>
+  )
 }
 
 export const OutOfRangeText: React.FC<TodayTextProps> = ({ day }) => {
-  return <Text color={'#ddd'}>{day.toFormat('d')}</Text>
+  const { theme } = useUIKitTheme()
+  return (
+    <Text sx={{ color: '#222', fontSize: theme.calendar.dayFontSize }}>
+      {day.toFormat('d')}
+    </Text>
+  )
 }
 
 export const Day: React.FC<DayProps> = (props) => {
@@ -122,14 +144,13 @@ const DayWrap: React.FC<DayWrapProps> = (props) => {
   return (
     <Flex
       onClick={() => onSelected && onSelected(day)}
-      __css={{
-        cursor: disabled ? 'default' : 'pointer'
+      sx={{
+        cursor: disabled ? 'default' : 'pointer',
+        minHeight,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 'calc(100% / 7)'
       }}
-      // border="solid 1px #efefef"
-      minHeight={minHeight}
-      justifyContent={'center'}
-      alignItems="center"
-      width={'calc(100% / 7)'}
     >
       {children}
     </Flex>

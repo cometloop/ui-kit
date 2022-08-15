@@ -13,6 +13,13 @@ const Template: ComponentStory<typeof Count> = (args) => <Count {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  bg: 'yellow',
-  children: 0
+  // bg: 'yellow',
+
+  children: 23
+}
+export const DifferentTextColor = Template.bind({})
+DifferentTextColor.args = {
+  // bg: 'yellow',
+  color: '#000',
+  children: 23
 }

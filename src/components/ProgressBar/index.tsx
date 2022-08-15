@@ -1,61 +1,39 @@
-import { Box } from '@lib/components/Box'
-import React, { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion/dist/framer-motion'
+import React from 'react'
+import { motion } from 'framer-motion'
+import { Box } from 'theme-ui'
+import { useTheme } from '@lib/themes/interfaces'
 
 export interface ProgressBarProps {
   height: number
   duration: number
-  overlayColor: string
-  overlayWidth: number
-  barColor: string
   show: boolean
-  animate: boolean
 }
 
 const defaultProps: ProgressBarProps = {
   height: 3,
   duration: 1,
-  overlayWidth: 100,
-  overlayColor: '#42a5f5',
-  barColor: '#bbdefb',
-  show: true,
-  animate: true
+  show: true
 }
 
 export const ProgressBar: React.FC<Partial<ProgressBarProps>> = (
   partialProps
 ) => {
   const props = { ...defaultProps, ...partialProps }
-  const {
-    show,
-    animate,
-    barColor,
-    overlayColor,
-    overlayWidth,
-    duration,
-    height
-  } = props
+  const { show, duration, height } = props
 
-  const [fill, setFill] = useState(10)
-  const screenWidth = '100%'
-
-  // useEffect(() => {
-  //   const id = setInterval(() => {
-  //     const nextFill = fill + 10
-  //     setFill(nextFill <= 100 ? nextFill : 0)
-  //   }, duration)
-  //   return () => {
-  //     clearInterval(id)
-  //   }
-  // }, [show, fill, screenWidth, duration, animate])
+  const { theme } = useTheme()
 
   return (
-    <>
+    <Box
+      css={{
+        height
+      }}
+    >
       {show && (
         <Box
-          __css={{
+          sx={{
             overflow: 'hidden',
-            backgroundColor: barColor,
+            backgroundColor: theme.colors.progressBarColor,
             position: 'relative',
             width: '100%',
             height
@@ -66,19 +44,19 @@ export const ProgressBar: React.FC<Partial<ProgressBarProps>> = (
             transition={{ duration, repeat: Infinity }}
           >
             <Box
-              __css={{
+              sx={{
                 overflow: 'hidden',
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                width: `${fill}%`,
+                width: `${15}%`,
                 height,
-                backgroundColor: overlayColor
+                backgroundColor: theme.colors.progressOverlayColor
               }}
             />
           </motion.div>
         </Box>
       )}
-    </>
+    </Box>
   )
 }

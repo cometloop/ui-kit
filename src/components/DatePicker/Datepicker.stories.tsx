@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Cards/DatePicker',
+  title: 'Components/DatePicker',
   component: DatePicker
 } as Meta<typeof DatePicker>
 

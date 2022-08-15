@@ -1,12 +1,5 @@
-import { Box } from '@lib/components/Box'
-import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
-import { ElementType, forwardRef, ReactNode } from 'react'
-import {
-  ColorProps,
-  LayoutProps,
-  SpaceProps,
-  TypographyProps
-} from 'styled-system'
+import { ReactNode } from 'react'
+import { BoxProps, SxProp, Text as ThemeText } from 'theme-ui'
 
 export enum FontFamily {
   Arial = 'Arial, sans-serif',
@@ -16,19 +9,21 @@ export enum FontFamily {
   SourceSansPro = 'Source Sans Pro, sans-serif'
 }
 
-export interface TextProps
-  extends TypographyProps,
-    SpaceProps,
-    LayoutProps,
-    ColorProps {
+export interface TextProps extends BoxProps {
   children: ReactNode
-  htmlFor?: string
-  fontFamily?: FontFamily | string
-  as?: ElementType
 }
 
-export const Text = forwardRef<HTMLSpanElement, TextProps>((props, ref) => {
-  const { theme } = useUIKitTheme()
-
-  return <Box theme={theme} as="span" ref={ref} tx="text" {...props} />
-})
+export const Text: React.FC<TextProps> = (props) => {
+  return (
+    <ThemeText
+      sx={{
+        fontFamily: FontFamily.OpenSans,
+        lineHeight: 'body',
+        // color: props.sx?.color || 'text',
+        ...props.sx
+      }}
+    >
+      {props.children}
+    </ThemeText>
+  )
+}

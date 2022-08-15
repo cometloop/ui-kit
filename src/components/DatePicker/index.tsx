@@ -1,8 +1,5 @@
-import { Box } from '@lib/components/Box'
-import { Button } from '@lib/components/Button'
 import { Month } from '@lib/components/DatePicker/Month'
-import { Flex } from '@lib/components/Flex'
-import { Header4 } from '@lib/components/Header'
+import { Header } from '@lib/components/Header'
 import { FontFamily } from '@lib/components/Text'
 import { useDatePicker } from '@lib/hooks/useCalendar'
 import { colors } from '@lib/themes/colors'
@@ -10,6 +7,7 @@ import { getSelectedDay } from '@lib/utils/date'
 import { DateTime, Interval } from 'luxon'
 import { useEffect, useState } from 'react'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
+import { Box, Button, Flex } from 'theme-ui'
 
 export interface DatePickerProps {
   selected?: string
@@ -18,7 +16,7 @@ export interface DatePickerProps {
   onSelected?: (day: DateTime) => void
 }
 
-const arrowSize = '2.4rem'
+const arrowSize = '1.4rem'
 
 export const DatePicker: React.FC<DatePickerProps> = (props) => {
   const { selected, minDate, maxDate, onSelected } = props
@@ -58,8 +56,14 @@ export const DatePicker: React.FC<DatePickerProps> = (props) => {
   const arrowColorNext = canGoNext ? colors.blue : colors.gray
 
   return (
-    <Box width={'350px'}>
-      <Flex justifyContent={'space-between'} alignItems="center" m="0">
+    <Box sx={{ width: '100%' }}>
+      <Flex
+        sx={{
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          margin: '0'
+        }}
+      >
         <Button
           disabled={!canGoBack}
           onClick={onPrevious}
@@ -68,14 +72,16 @@ export const DatePicker: React.FC<DatePickerProps> = (props) => {
         >
           <MdKeyboardArrowLeft size={arrowSize} color={arrowColorPrevious} />
         </Button>
-        <Header4
-          fontSize={'1.3rem'}
-          fontFamily={FontFamily.Roboto}
-          color="#666"
-          textAlign={'left'}
+        <Header
+          as="h4"
+          sx={{
+            fontFamily: FontFamily.Roboto,
+            color: '#666',
+            textAlign: 'left'
+          }}
         >
           {currentMonth.toFormat('MMMM yyyy')}
-        </Header4>
+        </Header>
         <Button
           disabled={!canGoNext}
           onClick={onNext}

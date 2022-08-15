@@ -1,21 +1,14 @@
-import { Box } from '@lib/components/Box'
 import { FontFamily, Text } from '@lib/components/Text'
-import { ColorType } from '@lib/themes/colors'
+import { colors, ColorType } from '@lib/themes/colors'
 import { useUIKitTheme } from '@lib/themes/UIKitThemeProvider'
 import React, { ReactNode } from 'react'
-import styled, { DefaultTheme, StyledComponent } from 'styled-components'
-import {
-  ButtonStyleProps,
-  FlexboxProps,
-  LayoutProps,
-  opacity,
-  SpaceProps,
-  StylesProps
-} from 'styled-system'
 
-export interface CountProps extends ButtonStyleProps, SpaceProps, LayoutProps {
+import { Box, BoxProps } from 'theme-ui'
+
+export interface CountProps extends BoxProps {
   children: ReactNode
-  bg: ColorType
+  bg?: ColorType
+  color?: string
   fontFamily?: FontFamily
 }
 
@@ -23,28 +16,24 @@ const circleSize = 60
 export const Count: React.FC<CountProps> = (props) => {
   const { theme } = useUIKitTheme()
   const fontFamily = props.fontFamily || FontFamily.Poppins
+  const color = props.color || '#fff'
   return (
     <Box
-      bg={theme.colors[props.bg]}
-      color={theme.colors.white}
-      fontFamily={fontFamily}
-      theme={theme}
-      __css={{
+      sx={{
         width: circleSize,
         height: circleSize,
         display: 'inline-flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        border: 0
-        // padding: '10px'
+        border: 0,
+        bg: props.bg || 'primary',
+        borderRadius: '50%',
+        fontFamily: fontFamily
       }}
-      // padding={'10px 20px'}
-      borderRadius={'50%'}
       as="div"
-      {...(props as any)}
     >
-      <Text fontSize={3}>{props.children}</Text>
+      <Text sx={{ fontSize: 3, color }}>{props.children}</Text>
     </Box>
   )
 }

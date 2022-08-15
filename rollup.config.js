@@ -22,7 +22,6 @@ export default {
       sourcemap: true,
     },
   ],
-  globals: { 'styled-components': 'styled' },
   external: ['styled-components', 'react', 'react-dom'],
   plugins: [
       commonjs(),
@@ -32,10 +31,14 @@ export default {
       image(),
       styles(),
       typescript({
-        exclude: [
+        tsconfigOverride:{
+          exclude: [
+            'src/**/*.test.tsx',
+            'src/**/*.test.ts',
             'src/**/*.stories.tsx',
             'src/**/*.test.tsx'
-        ]
+          ]
+        }
       }),
     ]
 };

@@ -1,13 +1,13 @@
-import { Box } from '@lib/components/Box'
 import { FontFamily, Text } from '@lib/components/Text'
 import { isToday, weekDays } from '@lib/components/Calendar/utils'
-import { Flex } from '@lib/components/Flex'
-import { Header4 } from '@lib/components/Header'
+
 import { DateTime, Interval } from 'luxon'
 import { Day } from '@lib/components/Calendar/Day'
 import { Agenda } from '@lib/components/Calendar/interfaces'
 import { useCalendar } from '@lib/hooks/useCalendar'
 import { dayInRange } from '@lib/utils/date'
+import { Box, Flex } from 'theme-ui'
+import { Header } from '@lib/components/Header'
 
 export interface MonthProps {
   datetime: DateTime
@@ -30,25 +30,34 @@ export const Month: React.FC<MonthProps> = (props) => {
   ).splitBy({ day: 1 })
 
   return (
-    <Box width={[1]}>
-      <Header4
-        fontFamily={FontFamily.Roboto}
-        color="#666"
-        textAlign={'center'}
-        m="2rem 0"
+    <Box sx={{ width: '100%' }}>
+      <Header
+        as="h4"
+        sx={{
+          margin: '2rem 0',
+          fontFamily: FontFamily.Roboto,
+          color: '#666',
+          textAlign: 'center'
+        }}
       >
         {datetime.toFormat('MMMM yyyy')}
-      </Header4>
-      <Flex flexDirection={'row'} mb="1rem">
+      </Header>
+      <Flex sx={{ flexDirection: 'row', marginBottom: '1rem' }}>
         {weekDays.map((day) => {
           return (
-            <Flex width={'calc(100% / 7)'} justifyContent={'center'} key={day}>
-              <Text color="#888">{day}</Text>
+            <Flex
+              sx={{
+                width: 'calc(100% / 7)',
+                justifyContent: 'center'
+              }}
+              key={day}
+            >
+              <Text sx={{ color: '#888', fontSize: 1 }}>{day}</Text>
             </Flex>
           )
         })}
       </Flex>
-      <Flex flexDirection={'row'} flexWrap="wrap">
+      <Flex sx={{ flexDirection: 'row', flexWrap: 'wrap' }}>
         {interval.map((i, index) => {
           const dayBelongsToMonth = currentMonth === i.start.month
           const inRange = dayInRange(i.start, start, end)

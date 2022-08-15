@@ -17,5 +17,7 @@ const Template: ComponentStory<typeof AppIcon> = (args) => <AppIcon {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  size: 200
+  size: 200,
+  lightIcon: 'https://cometloop.com/comet-loop-logo-black.png',
+  darkIcon: 'https://cometloop.com/logo-white-transparent-200px.png'
 }

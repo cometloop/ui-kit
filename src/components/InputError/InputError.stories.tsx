@@ -4,7 +4,7 @@ import { DateTime } from 'luxon'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Form/InputError',
+  title: 'Components/InputError',
   component: InputError
 } as Meta
 

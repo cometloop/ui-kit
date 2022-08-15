@@ -1,8 +1,8 @@
-import { Box } from '@lib/components/Box'
 import { Agenda } from '@lib/components/Calendar/interfaces'
 import { Month } from '@lib/components/Calendar/Month'
 import { DateTime, Interval } from 'luxon'
 import { useLayoutEffect } from 'react'
+import { Box } from 'theme-ui'
 
 export interface CalendarProps {
   markedDates?: Agenda
@@ -14,8 +14,7 @@ export interface CalendarProps {
 }
 
 export const Calendar: React.FC<CalendarProps> = (props) => {
-  const { markedDates, current, minDate, maxDate, scrollToToday, onDayClick } =
-    props
+  const { markedDates, minDate, maxDate, scrollToToday, onDayClick } = props
 
   const start = DateTime.fromISO(minDate)
   const end = DateTime.fromISO(maxDate)

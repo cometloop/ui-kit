@@ -6,7 +6,7 @@ import agendaItems from './agendaItems.json'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Cards/Calendar',
+  title: 'Components/Calendar',
   component: Calendar
 } as Meta<typeof Calendar>
 

@@ -1,7 +1,9 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta, Meta, Story } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { Card, CardProps } from '@lib/components/Card'
 import { Text } from '@lib/components/Text'
+import { lorem } from '@lib/constants'
+import { Header } from '@lib/components/Header'
+import { Box } from 'theme-ui'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -10,9 +12,22 @@ export default {
 } as Meta
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: Story<CardProps> = (args) => <Card {...args} width={[1]} />
+const Template: Story<CardProps> = (args) => <Card {...args} />
+
+const children = (
+  <Box>
+    <Header as="h1">Breaking News</Header>
+    <Text>{lorem}</Text>
+  </Box>
+)
 
 export const Default = Template.bind({})
 Default.args = {
-  children: <Text>This is some sample text</Text>
+  children
+}
+
+export const Large = Template.bind({})
+Large.args = {
+  children,
+  variant: 'large'
 }

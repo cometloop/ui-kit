@@ -1,7 +1,5 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta, Meta, Story } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { Chip, ChipProps } from '@lib/components/Chip'
-import { Text } from '@lib/components/Text'
 import { IoIosArrowDropdownCircle } from 'react-icons/io'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

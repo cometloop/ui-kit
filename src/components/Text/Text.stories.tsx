@@ -1,6 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { FontFamily, Text } from '@lib/components/Text'
+import { lorem } from '@lib/constants'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -19,40 +20,45 @@ const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  children: 'This is some sample text.'
+  children: lorem
 }
 
 export const OpenSans = Template.bind({})
 OpenSans.args = {
-  children: 'This is some sample text.',
-  fontFamily: FontFamily.OpenSans,
-  fontSize: '1rem'
+  children: lorem,
+  sx: {
+    fontFamily: FontFamily.OpenSans
+  }
 }
 
 export const Arial = Template.bind({})
 Arial.args = {
-  children: 'This is some sample text.',
-  fontFamily: FontFamily.Arial,
-  fontSize: '1rem'
+  children: lorem,
+  sx: {
+    fontFamily: FontFamily.Arial
+  }
 }
 
 export const Poppins = Template.bind({})
 Poppins.args = {
-  children: 'This is some sample text.',
-  fontFamily: FontFamily.Poppins,
-  fontSize: '1rem'
+  children: lorem,
+  sx: {
+    fontFamily: FontFamily.Poppins
+  }
 }
 
 export const Roboto = Template.bind({})
 Roboto.args = {
-  children: 'This is some sample text.',
-  fontFamily: FontFamily.Roboto,
-  fontSize: '1rem'
+  children: lorem,
+  sx: {
+    fontFamily: FontFamily.Roboto
+  }
 }
 
 export const SourceSansPro = Template.bind({})
 SourceSansPro.args = {
-  children: 'This is some sample text.',
-  fontFamily: FontFamily.SourceSansPro,
-  fontSize: '1rem'
+  children: lorem,
+  sx: {
+    fontFamily: FontFamily.SourceSansPro
+  }
 }
