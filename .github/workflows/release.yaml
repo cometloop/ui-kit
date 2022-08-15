@@ -24,7 +24,7 @@ jobs:
         env:
           NPMRC: ${{ secrets.NPMRC }}
         run: |
-          echo $NPMRC | base64 -d > ~/.npmrc
+          echo $NPMRC > ~/.npmrc
 
       - name: Install dependencies
         run: yarn
