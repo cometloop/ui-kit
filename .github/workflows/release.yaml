@@ -23,6 +23,7 @@ jobs:
       - name: Creating ~/.npmrc
         env:
           NPMRC: ${{ secrets.NPMRC }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo $NPMRC > ~/.npmrc
 
