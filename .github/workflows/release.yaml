@@ -28,6 +28,7 @@ jobs:
 
       - name: 'Show npmrc'
         run: |
+          echo 'HERE'
           echo $NPMRC
 
       - name: Install dependencies
