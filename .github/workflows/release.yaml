@@ -24,12 +24,9 @@ jobs:
         env:
           NPMRC: ${{ secrets.NPMRC }}
         run: |
-          echo $NPMRC > .npmrc
-
-      - name: 'Show npmrc'
-        run: |
           echo 'HERE'
           echo $NPMRC
+          echo $NPMRC > .npmrc
 
       - name: Install dependencies
         run: yarn
