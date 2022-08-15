@@ -20,15 +20,11 @@ jobs:
           node-version: 'lts/*'
           registry-url: https://npm.pkg.github.com/
 
-      - name: Creating ~/.npmrc
+      - name: Creating .npmrc
         env:
           NPMRC: ${{ secrets.NPMRC }}
         run: |
-          echo $NPMRC > ~/.npmrc
-
-      - name: TEMP show ~/.npmrc
-        run: |
-          cat ~/.npmrc
+          echo $NPMRC > .npmrc
 
       - name: Install dependencies
         run: yarn
