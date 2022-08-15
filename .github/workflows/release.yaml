@@ -27,7 +27,7 @@ jobs:
           echo $NPMRC > .npmrc
 
       - name: 'Show npmrc'
-      - run: |
+        run: |
           echo $NPMRC
 
       - name: Install dependencies
