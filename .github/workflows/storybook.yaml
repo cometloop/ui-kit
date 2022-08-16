@@ -1,0 +1,59 @@
+name: Deploy Storybook
+
+on:
+  workflow_run:
+    workflows: [Release]
+    types:
+      - completed
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Publish storybook to Github Pages'
+        required: true
+        default: 'yes'
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+          registry-url: https://npm.pkg.github.com/
+
+      - name: Configure .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo '//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> .npmrc
+
+      - name: Install dependencies
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          yarn
+
+      - name: Build package
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn build-storybook
+
+      # - name: Run tests
+      #   run: yarn test
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: storybook
+          FOLDER: storybook-static
+          CLEAN: true
+          TARGET_FOLDER: docs
