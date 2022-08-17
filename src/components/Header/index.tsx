@@ -1,8 +1,8 @@
-import { Heading, SxProp } from 'theme-ui'
+import { BoxProps, Heading, SxProp } from 'theme-ui'
 
 import React, { ReactNode } from 'react'
 
-export interface HeaderProps extends SxProp {
+export interface HeaderProps extends BoxProps {
   children: ReactNode
   as?: any
 }
@@ -15,9 +15,11 @@ export const Header: React.FC<HeaderProps> = (props) => {
         fontFamily: 'heading',
         fontWeight: 'heading',
         lineHeight: 'heading',
-        color: 'text'
+        color: 'text',
+        ...props.sx
       }}
-      {...props}
-    />
+    >
+      {props.children}
+    </Heading>
   )
 }

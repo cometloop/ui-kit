@@ -12,9 +12,12 @@ export const theme: UIKitTheme = {
   },
   fonts: {
     body: FontFamily.Arial,
-    heading: FontFamily.SourceSansPro
+    heading: FontFamily.Poppins
   },
   fontSizes: [12, 14, 16, 20, 24, 32],
+  fontWeights: {
+    heading: 'bold'
+  },
   lineHeights: {
     body: 1.5,
     heading: 1.75,

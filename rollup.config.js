@@ -22,7 +22,7 @@ export default {
       sourcemap: true,
     },
   ],
-  external: ['styled-components', 'react', 'react-dom'],
+  external: ['react', 'react-dom'],
   plugins: [
       commonjs(),
       json(),
