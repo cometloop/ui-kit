@@ -15,7 +15,7 @@ interface Props {
 }
 
 export const UIKitThemeProvider: React.FC<Props> = ({ theme, children }) => {
-  const currentTheme = merge(defaultTheme, theme)
+  const currentTheme = merge(defaultTheme, theme || {})
   return (
     <>
       <GlobalStyles />
