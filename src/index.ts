@@ -20,9 +20,9 @@ export * from './components/ListItem'
 export * from './components/ProgressBar'
 export * from './components/Text'
 export * from './components/Count'
-
 export * from './components/FileUpload'
 export * from './components/FileUpload/interfaces'
+export * from './components/Clock'
 
 export * from 'react-icons/fa'
 export * from 'react-icons/md'
