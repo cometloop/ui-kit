@@ -1,4 +1,5 @@
 import { FontFamily, Text } from '@lib/components/Text'
+import { colors } from '@lib/themes/colors'
 import { Box } from 'theme-ui'
 
 interface InputErrorProps {
@@ -17,7 +18,7 @@ export const InputError: React.FC<InputErrorProps> = ({ children }) => {
           height: '2rem',
           fontSize: '0.8rem',
           fontFamily: FontFamily.Roboto,
-          color: 'red'
+          color: colors.red
         }}
       >
         {children}

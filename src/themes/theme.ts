@@ -10,6 +10,10 @@ export const theme: UIKitTheme = {
     initialColorModeName: 'light',
     useColorSchemeMediaQuery: false
   },
+  input: {
+    textColor: colors.black,
+    bgColor: colors.white
+  },
   fonts: {
     body: FontFamily.Arial,
     heading: FontFamily.Poppins
