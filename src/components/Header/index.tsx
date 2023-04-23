@@ -5,6 +5,7 @@ import React, { ReactNode } from 'react'
 export interface HeaderProps extends BoxProps {
   children: ReactNode
   as?: any
+  ref?: any
 }
 
 export const Header: React.FC<HeaderProps> = (props) => {
@@ -18,6 +19,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
         color: 'text',
         ...props.sx
       }}
+      ref={props.ref}
     >
       {props.children}
     </Heading>

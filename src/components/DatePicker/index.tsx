@@ -36,13 +36,15 @@ export const DatePicker: React.FC<DatePickerProps> = (props) => {
   const data = useDatePicker(currentMonth, min, max)
   const { startPrefillDay, lastPrefillDay, canGoBack, canGoNext } = data
 
-  const onPrevious = () => {
+  const onPrevious = (e: any) => {
+    e.preventDefault()
     if (canGoBack) {
       setCurrentMonth(currentMonth.minus({ month: 1 }))
     }
   }
 
-  const onNext = () => {
+  const onNext = (e: any) => {
+    e.preventDefault()
     if (canGoNext) {
       setCurrentMonth(currentMonth.plus({ month: 1 }))
     }

@@ -11,6 +11,7 @@ export enum FontFamily {
 
 export interface TextProps extends BoxProps {
   children: ReactNode
+  ref?: any
 }
 
 export const Text: React.FC<TextProps> = (props) => {
@@ -22,6 +23,7 @@ export const Text: React.FC<TextProps> = (props) => {
         // color: props.sx?.color || 'text',
         ...props.sx
       }}
+      ref={props.ref}
     >
       {props.children}
     </ThemeText>
