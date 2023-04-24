@@ -33,8 +33,6 @@ export const UIKitProvider: React.FC<UIKitContextProps> = ({
     setMode(mode === 'light' ? 'dark' : 'light')
   }, [mode])
 
-  console.log('render')
-
   return (
     <UIKitContext.Provider value={{ mode, toggleMode }}>
       <UIKitThemeProvider>{children}</UIKitThemeProvider>
