@@ -1,7 +1,22 @@
 import type { Preview } from '@storybook/react'
-import React from 'react'
-import { UIKitThemeProvider } from '../src/themes/UIKitThemeProvider'
+import React, { ReactNode, useEffect } from 'react'
+import { UIKitProvider, useUIKit } from '../src/themes/UIKitProvider'
 import { PaletteMode } from '@mui/material'
+
+interface StoryComponentProps {
+  mode: PaletteMode
+  children: ReactNode
+}
+
+const StoryComponent: React.FC<StoryComponentProps> = ({ mode, children }) => {
+  const { toggleMode } = useUIKit()
+
+  useEffect(() => {
+    toggleMode()
+  }, [mode])
+
+  return <>{children}</>
+}
 
 const preview: Preview = {
   parameters: {
@@ -16,13 +31,13 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const mode = context.globals.theme as PaletteMode
-      console.log(mode)
-
       return (
         <>
-          <UIKitThemeProvider mode={mode}>
-            <Story />
-          </UIKitThemeProvider>
+          <UIKitProvider mode={mode}>
+            <StoryComponent mode={mode}>
+              <Story />
+            </StoryComponent>
+          </UIKitProvider>
         </>
       )
     }

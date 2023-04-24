@@ -44,6 +44,11 @@ export const getPaletteColorsBasedOnMode = (
       background: {
         default: grey[900],
         paper: grey[800]
+      },
+      text: {
+        primary: '#fff',
+        secondary: '#efefef',
+        disabled: '#dcdcdc'
       }
     }
   }

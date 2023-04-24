@@ -2,27 +2,28 @@ import {
   CssBaseline,
   PaletteMode,
   ThemeProvider,
-  createTheme
+  createTheme,
+  useColorScheme
 } from '@mui/material'
 import { ReactNode } from 'react'
 import { getTheme } from './theme'
 import React from 'react'
 import { grey } from '@mui/material/colors'
+import { useUIKit } from './UIKitProvider'
 
 export interface UIKitThemeProviderProps {
-  mode?: PaletteMode
   children: ReactNode
 }
 
 export const UIKitThemeProvider: React.FC<UIKitThemeProviderProps> = ({
-  mode,
   children
 }) => {
+  const { mode } = useUIKit()
   const theme = getTheme(mode)
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
-        <CssBaseline enableColorScheme />
+        <CssBaseline />
         {children}
       </ThemeProvider>
     </React.Fragment>
