@@ -31,7 +31,7 @@ const preview: Preview = {
 
 export const globalTypes = {
   theme: {
-    name: 'Mode',
+    title: 'Mode',
     description: 'Color mode for UIKit',
     defaultValue: 'dark',
     toolbar: {

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { CLButton as Button } from './'
 
 const meta = {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
   tags: ['autodocs']
 } satisfies Meta<typeof Button>
