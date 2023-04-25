@@ -8,6 +8,14 @@ declare module '@mui/material/styles' {
       iconColor: string
       activeIconColor: string
     }
+    cards: {
+      tabCard: {
+        bgColor: string
+        activeBgColor: string
+        color: string
+        activeColor: string
+      }
+    }
   }
 
   interface PaletteOptions {
@@ -15,6 +23,14 @@ declare module '@mui/material/styles' {
       borderColor: string
       iconColor: string
       activeIconColor: string
+    }
+    cards: {
+      tabCard: {
+        bgColor: string
+        activeBgColor: string
+        color: string
+        activeColor: string
+      }
     }
   }
 }
@@ -44,6 +60,14 @@ export const getPaletteColorsBasedOnMode = (
         borderColor: '#2488f6',
         activeIconColor: '#2488f6',
         iconColor: '#aaa'
+      },
+      cards: {
+        tabCard: {
+          bgColor: 'transparent',
+          activeBgColor: '#2488f6',
+          color: '#000',
+          activeColor: '#fff'
+        }
       }
     }
   } else {
@@ -77,6 +101,14 @@ export const getPaletteColorsBasedOnMode = (
         borderColor: '#fff',
         activeIconColor: '#2488f6',
         iconColor: '#aaa'
+      },
+      cards: {
+        tabCard: {
+          bgColor: 'transparent',
+          activeBgColor: '#2488f6',
+          color: '#fff',
+          activeColor: '#fff'
+        }
       }
     }
   }
