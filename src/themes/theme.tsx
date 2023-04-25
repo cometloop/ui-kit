@@ -1,6 +1,24 @@
 import { PaletteMode, PaletteOptions, Theme, createTheme } from '@mui/material'
 import { grey } from '@mui/material/colors'
 
+declare module '@mui/material/styles' {
+  interface Palette {
+    bottomNavBar: {
+      borderColor: string
+      iconColor: string
+      activeIconColor: string
+    }
+  }
+
+  interface PaletteOptions {
+    bottomNavBar: {
+      borderColor: string
+      iconColor: string
+      activeIconColor: string
+    }
+  }
+}
+
 export const getPaletteColorsBasedOnMode = (
   mode: PaletteMode
 ): PaletteOptions => {
@@ -21,6 +39,11 @@ export const getPaletteColorsBasedOnMode = (
       },
       success: {
         main: '#29c6c1'
+      },
+      bottomNavBar: {
+        borderColor: '#2488f6',
+        activeIconColor: '#2488f6',
+        iconColor: '#aaa'
       }
     }
   } else {
@@ -49,6 +72,11 @@ export const getPaletteColorsBasedOnMode = (
         primary: '#fff',
         secondary: '#efefef',
         disabled: '#dcdcdc'
+      },
+      bottomNavBar: {
+        borderColor: '#fff',
+        activeIconColor: '#2488f6',
+        iconColor: '#aaa'
       }
     }
   }

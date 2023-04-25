@@ -9,10 +9,10 @@ interface StoryComponentProps {
 }
 
 const StoryComponent: React.FC<StoryComponentProps> = ({ mode, children }) => {
-  const { toggleMode } = useUIKit()
+  const { toggleMode, mode: currentMode } = useUIKit()
 
   useEffect(() => {
-    toggleMode()
+    if (mode !== currentMode) toggleMode()
   }, [mode])
 
   return <>{children}</>
