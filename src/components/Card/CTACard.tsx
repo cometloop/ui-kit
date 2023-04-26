@@ -5,7 +5,8 @@ import {
   Typography,
   ButtonProps,
   Button,
-  Box
+  Box,
+  SxProps
 } from '@mui/material'
 import React from 'react'
 
@@ -13,13 +14,14 @@ export interface CTACardProps {
   variant: 'cta'
   caption: string
   ctaButton?: ButtonProps
+  sx?: SxProps
 }
 
 export const CTACard: React.FC<CTACardProps> = (props) => {
-  const { caption, ctaButton } = props
+  const { caption, ctaButton, sx } = props
 
   return (
-    <MUCard sx={{ width: 1 }}>
+    <MUCard sx={{ width: 1, ...sx }}>
       <CardMedia
         sx={{ height: 250 }}
         image="https://picsum.photos/500/300"

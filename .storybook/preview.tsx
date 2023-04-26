@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react'
 import React, { ReactNode, useEffect } from 'react'
 import { UIKitProvider, useUIKit } from '../src/themes/UIKitProvider'
+import { UIKitThemeProvider } from '../src/themes/UIKitThemeProvider'
 import { PaletteMode } from '@mui/material'
 
 interface StoryComponentProps {
@@ -34,9 +35,11 @@ const preview: Preview = {
       return (
         <>
           <UIKitProvider mode={mode}>
-            <StoryComponent mode={mode}>
-              <Story />
-            </StoryComponent>
+            <UIKitThemeProvider>
+              <StoryComponent mode={mode}>
+                <Story />
+              </StoryComponent>
+            </UIKitThemeProvider>
           </UIKitProvider>
         </>
       )

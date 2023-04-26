@@ -1,4 +1,11 @@
-import { Card as MUCard, CardContent, Typography, Box } from '@mui/material'
+import {
+  Card as MUCard,
+  CardContent,
+  Typography,
+  Box,
+  SxProps,
+  CardActionArea
+} from '@mui/material'
 import React, {
   ReactElement,
   ReactNode,
@@ -10,8 +17,9 @@ import React, {
   useRef,
   useState
 } from 'react'
+import { SharedCardProps } from '.'
 
-export interface TabCardProps {
+export interface TabCardProps extends Omit<SharedCardProps, 'onClick'> {
   variant: 'tabs'
   tabs?: string[]
   children?: ReactElement<TabCardContentProps>[]
@@ -61,7 +69,7 @@ export const TabCardContent: React.FC<TabCardContentProps> = forwardRef(
 )
 
 export const TabCard: React.FC<TabCardProps> = (props) => {
-  const { tabs, children } = props
+  const { tabs, children, sx } = props
   const [activeIndex, setActiveIndex] = useState<number>(0)
   const elementsRef = useRef(
     children.map(() => createRef<TabCardContentHandle>())
@@ -73,7 +81,7 @@ export const TabCard: React.FC<TabCardProps> = (props) => {
   }, [activeIndex, tabs])
 
   return (
-    <MUCard sx={{ width: 1 }}>
+    <MUCard sx={{ width: 1, ...sx }}>
       <CardContent>
         <Box
           sx={{
@@ -104,8 +112,7 @@ export const TabCard: React.FC<TabCardProps> = (props) => {
                     color:
                       activeIndex === i
                         ? 'cards.tabCard.activeColor'
-                        : 'cards.tabCard.color',
-                    textAlign: 'center'
+                        : 'cards.tabCard.color'
                   }}
                   variant="subtitle1"
                 >
@@ -120,6 +127,7 @@ export const TabCard: React.FC<TabCardProps> = (props) => {
           return cloneElement(element, { ref: elementsRef.current[idx] })
         })}
       </CardContent>
+      <CardActionArea />
     </MUCard>
   )
 }

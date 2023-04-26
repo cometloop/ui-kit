@@ -1,4 +1,10 @@
-import { PaletteMode, PaletteOptions, Theme, createTheme } from '@mui/material'
+import {
+  PaletteMode,
+  PaletteOptions,
+  Theme,
+  createTheme,
+  responsiveFontSizes
+} from '@mui/material'
 import { grey } from '@mui/material/colors'
 
 declare module '@mui/material/styles' {
@@ -55,6 +61,10 @@ export const getPaletteColorsBasedOnMode = (
       },
       success: {
         main: '#29c6c1'
+      },
+      background: {
+        default: '#fff',
+        paper: '#fff'
       },
       bottomNavBar: {
         borderColor: '#2488f6',
@@ -129,5 +139,7 @@ export const getTheme = (mode: PaletteMode): Theme => {
     }
   })
 
-  return theme
+  return responsiveFontSizes(theme, {
+    factor: 1
+  })
 }

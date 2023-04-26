@@ -1,14 +1,7 @@
-import {
-  CssBaseline,
-  PaletteMode,
-  ThemeProvider,
-  createTheme,
-  useColorScheme
-} from '@mui/material'
+import { CssBaseline, ThemeProvider } from '@mui/material'
 import { ReactNode } from 'react'
 import { getTheme } from './theme'
 import React from 'react'
-import { grey } from '@mui/material/colors'
 import { useUIKit } from './UIKitProvider'
 
 export interface UIKitThemeProviderProps {

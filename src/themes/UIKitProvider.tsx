@@ -4,10 +4,8 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useState
 } from 'react'
-import { UIKitThemeProvider } from './UIKitThemeProvider'
 
 interface IUIKitContext {
   mode: PaletteMode
@@ -35,7 +33,7 @@ export const UIKitProvider: React.FC<UIKitContextProps> = ({
 
   return (
     <UIKitContext.Provider value={{ mode, toggleMode }}>
-      <UIKitThemeProvider>{children}</UIKitThemeProvider>
+      {children}
     </UIKitContext.Provider>
   )
 }
