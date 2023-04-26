@@ -19,7 +19,7 @@ export const CTACard: React.FC<CTACardProps> = (props) => {
   const { caption, ctaButton } = props
 
   return (
-    <MUCard sx={{ maxWidth: 500 }}>
+    <MUCard sx={{ width: 1 }}>
       <CardMedia
         sx={{ height: 250 }}
         image="https://picsum.photos/500/300"

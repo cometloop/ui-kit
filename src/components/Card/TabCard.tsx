@@ -73,7 +73,7 @@ export const TabCard: React.FC<TabCardProps> = (props) => {
   }, [activeIndex, tabs])
 
   return (
-    <MUCard sx={{ maxWidth: 500 }}>
+    <MUCard sx={{ width: 1 }}>
       <CardContent>
         <Box
           sx={{
