@@ -4,7 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import svg from 'rollup-plugin-svg'
 import image from '@rollup/plugin-image';
-import styles from "rollup-plugin-styles";
+import cleaner from 'rollup-plugin-cleaner';
 
 const packageJson = require('./package.json')
 
@@ -16,11 +16,11 @@ export default {
       format: 'cjs',
       sourcemap: true,
     },
-    {
-      file: packageJson.module,
-      format: 'esm',
-      sourcemap: true,
-    },
+    // {
+    //   file: packageJson.module,
+    //   format: 'esm',
+    //   sourcemap: true,
+    // },
   ],
   external: ['react', 'react-dom'],
   plugins: [
@@ -29,12 +29,17 @@ export default {
       resolve(),
       svg(),
       image(),
-      styles(),
+      cleaner({
+        targets: [
+          './dist/'
+        ]
+      }),
       typescript({
         tsconfigOverride:{
           exclude: [
             'src/**/*.test.tsx',
             'src/**/*.test.ts',
+            'src/**/*.stories.ts',
             'src/**/*.stories.tsx',
             'src/**/*.test.tsx'
           ]

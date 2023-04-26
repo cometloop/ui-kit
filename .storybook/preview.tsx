@@ -1,36 +1,57 @@
+import type { Preview } from '@storybook/react'
 import React, { ReactNode, useEffect } from 'react'
+import { UIKitProvider, useUIKit } from '../src/themes/UIKitProvider'
 import { UIKitThemeProvider } from '../src/themes/UIKitThemeProvider'
-import { useColorMode } from 'theme-ui'
+import { PaletteMode } from '@mui/material'
 
-const withThemeProvider = (Story, context) => {
-  return (
-    <UIKitThemeProvider theme={undefined}>
-      <StorybookTheme theme={context.globals.theme}>
-        <Story />
-      </StorybookTheme>
-    </UIKitThemeProvider>
-  )
+interface StoryComponentProps {
+  mode: PaletteMode
+  children: ReactNode
 }
 
-const StorybookTheme: React.FC<{ theme: string; children: ReactNode }> = ({
-  theme,
-  children
-}) => {
-  const [_, setColorMode] = useColorMode()
+const StoryComponent: React.FC<StoryComponentProps> = ({ mode, children }) => {
+  const { toggleMode, mode: currentMode } = useUIKit()
+
   useEffect(() => {
-    setColorMode(theme)
-  }, [theme])
+    if (mode !== currentMode) toggleMode()
+  }, [mode])
 
   return <>{children}</>
 }
 
-export const decorators = [withThemeProvider]
+const preview: Preview = {
+  parameters: {
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/
+      }
+    }
+  },
+  decorators: [
+    (Story, context) => {
+      const mode = context.globals.theme as PaletteMode
+      return (
+        <>
+          <UIKitProvider mode={mode}>
+            <UIKitThemeProvider>
+              <StoryComponent mode={mode}>
+                <Story />
+              </StoryComponent>
+            </UIKitThemeProvider>
+          </UIKitProvider>
+        </>
+      )
+    }
+  ]
+}
 
 export const globalTypes = {
   theme: {
-    name: 'Theme',
-    description: 'Global theme for components',
-    defaultValue: 'light',
+    title: 'Mode',
+    description: 'Color mode for UIKit',
+    defaultValue: 'dark',
     toolbar: {
       icon: 'globe',
       // Array of plain string values or MenuItem shape (see below)
@@ -42,3 +63,5 @@ export const globalTypes = {
     }
   }
 }
+
+export default preview

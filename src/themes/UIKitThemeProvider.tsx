@@ -1,36 +1,24 @@
-import { GlobalStyles } from '@lib/styles/GlobalStyles'
-import { UIKitTheme, useTheme } from '@lib/themes/interfaces'
-import { theme as defaultTheme } from '@lib/themes/theme'
-import { ThemeProvider, useColorMode, merge } from 'theme-ui'
-import React, { ReactNode } from 'react'
+import { CssBaseline, ThemeProvider } from '@mui/material'
+import { ReactNode } from 'react'
+import { getTheme } from './theme'
+import React from 'react'
+import { useUIKit } from './UIKitProvider'
 
-import '@fontsource/open-sans'
-import '@fontsource/poppins'
-import '@fontsource/source-sans-pro'
-import '@fontsource/roboto'
-
-interface Props {
-  theme?: UIKitTheme
+export interface UIKitThemeProviderProps {
   children: ReactNode
 }
 
-export const UIKitThemeProvider: React.FC<Props> = ({ theme, children }) => {
-  const currentTheme = merge(defaultTheme, theme || {})
+export const UIKitThemeProvider: React.FC<UIKitThemeProviderProps> = ({
+  children
+}) => {
+  const { mode } = useUIKit()
+  const theme = getTheme(mode)
   return (
-    <>
-      <GlobalStyles />
-      <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>
-    </>
+    <React.Fragment>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
+    </React.Fragment>
   )
-}
-
-export const useUIKitTheme = () => {
-  const [colorMode, setColorMode] = useColorMode()
-  const { theme } = useTheme()
-
-  return {
-    colorMode,
-    setColorMode,
-    theme
-  }
 }
