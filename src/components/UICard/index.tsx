@@ -5,7 +5,7 @@ import { ListItemCard, ListItemCardProps } from './ListItemCard'
 import { SxProps } from '@mui/material'
 import { ComposableCard, ComposableCardProps } from './ComposableCard'
 
-export type CardProps =
+export type UICardProps =
   | CTACardProps
   | TabCardProps
   | ListItemCardProps
@@ -16,7 +16,7 @@ export interface SharedCardProps {
   onClick?: MouseEventHandler<HTMLDivElement>
 }
 
-export const Card: React.FC<CardProps> = (props) => {
+export const UICard: React.FC<UICardProps> = (props) => {
   const { variant } = props
   switch (variant) {
     case 'cta':

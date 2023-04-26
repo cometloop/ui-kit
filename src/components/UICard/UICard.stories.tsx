@@ -1,34 +1,34 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Card, CardProps } from '.'
+import { UICard, UICardProps } from '.'
 import { TabCardContent } from './TabCard'
 import { Typography } from '@mui/material'
 import { ListItemCardProps } from './ListItemCard'
 import { HiArrowRightCircle } from 'react-icons/hi2'
 
 const meta = {
-  title: 'Components/Card',
-  component: Card,
+  title: 'Components/UICard',
+  component: UICard,
   tags: ['autodocs']
-} satisfies Meta<typeof Card>
+} satisfies Meta<typeof UICard>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-const Template = (args: CardProps) => {
+const Template = (args: UICardProps) => {
   if (args.variant === 'tabs') {
     return (
-      <Card {...args}>
+      <UICard {...args}>
         <TabCardContent tabId="This Week">
           <Typography>Here is this weeks' stuff</Typography>
         </TabCardContent>
         <TabCardContent tabId="2023-2024">
           <Typography>Here is 2021-2022's stuff</Typography>
         </TabCardContent>
-      </Card>
+      </UICard>
     )
   }
 
-  return <Card {...args} />
+  return <UICard {...args} />
 }
 
 export const TabsCard = Template.bind({})
